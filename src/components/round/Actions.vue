@@ -56,6 +56,7 @@ export default defineComponent({
   .action {
     height: 3rem;
     margin: 0.5rem;
+    filter: drop-shadow(2px 2px 2px #aaa);
   }
   .townNumber {
     position: absolute;
