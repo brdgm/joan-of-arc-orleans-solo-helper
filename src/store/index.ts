@@ -12,6 +12,15 @@ export interface State {
 export interface Setup {
   difficultyLevel: DifficultyLevel
 }
+export interface CardDeckPersistence {
+  deck: string[]
+  discard: string[]
+}
+export interface BagPersistence {
+  inside: string[]
+  active: string[]
+  holding: string[]
+}
 
 declare module '@vue/runtime-core' {
   // provide typings for `this.$store`
