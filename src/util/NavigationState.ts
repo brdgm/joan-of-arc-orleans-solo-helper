@@ -4,6 +4,7 @@ import { RouteLocation } from "vue-router"
 import { Store } from "vuex"
 import CardDeck from "@/services/CardDeck"
 import Bag from "@/services/Bag"
+import Bot from "@/services/Bot"
 
 export default class NavigationState {
 
@@ -12,6 +13,7 @@ export default class NavigationState {
   readonly tile : number
   readonly cardDeck : CardDeck
   readonly bag : Bag
+  readonly bot? : Bot
 
   constructor(route : RouteLocation, store : Store<State>) {    
     const setup = store.state.setup
@@ -21,6 +23,10 @@ export default class NavigationState {
     this.tile = parseInt(route.params['tile'] as string)
     this.cardDeck = NavigationState.getCardDeck(this.round, this.tile, this.difficultyLevel, store)
     this.bag = NavigationState.getBag(this.round, this.tile, store)
+
+    if (this.isBotTurn) {
+      this.bot = new Bot(this.cardDeck, this.bag, this.difficultyLevel)
+    }
   }
 
   public get isPlayerTurn() : boolean {
