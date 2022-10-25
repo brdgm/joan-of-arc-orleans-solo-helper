@@ -30,6 +30,20 @@ export default class NavigationState {
     }
   }
 
+  public get isPlayerTurn() : boolean {
+    // player draws 1,3,5 in all uneven turns
+    if (this.round % 2 != 0) {
+      return this.tile % 2 != 0
+    }
+    else {
+      return this.tile % 2 == 0
+    }
+  }
+
+  public get isBotTurn() : boolean {
+    return !this.isPlayerTurn
+  }
+
   private static getCardDeck(round : number, difficultyLevel: DifficultyLevel, store : Store<State>) : CardDeck {
     if (round > 1) {
       const previousRound = store.state.rounds.find(item => item.round==round-1)
