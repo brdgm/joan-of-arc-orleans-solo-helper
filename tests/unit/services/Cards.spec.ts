@@ -1,4 +1,5 @@
 import Cards from '@/services/Cards'
+import DifficultyLevel from '@/services/enum/DifficultyLevel'
 import { expect } from 'chai'
 
 describe('Cards', () => {
@@ -10,8 +11,8 @@ describe('Cards', () => {
   })
 
   it('getAll', () => {
-    const cards = Cards.getAll()
-
-    expect(cards.length).eq(18)
+    expect(Cards.getAll(DifficultyLevel.EASY).length).eq(14)
+    expect(Cards.getAll(DifficultyLevel.MEDIUM).length).eq(14)
+    expect(Cards.getAll(DifficultyLevel.HARD).length).eq(14)
   })
 })

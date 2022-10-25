@@ -1,6 +1,7 @@
 import findMandatory from "brdgm-commons/src/util/map/findMandatory";
 import Card from "./Card";
 import Action from "./enum/Action";
+import DifficultyLevel from "./enum/DifficultyLevel";
 import Direction from "./enum/Direction";
 import Follower from "./enum/Follower";
 
@@ -18,7 +19,8 @@ const cards = [
       {follower: Follower.CRAFTSMAN, actions: [Action.TRADING_STATION]},
     ],
     monkFollower: Follower.FARMER,
-    monkAction: Action.SHIELD
+    monkAction: Action.SHIELD,
+    difficultyLevel: [DifficultyLevel.EASY,DifficultyLevel.MEDIUM]
   },
   {
     id: '2',
@@ -33,7 +35,8 @@ const cards = [
       {follower: Follower.FARMER, actions: [Action.MONK]},
     ],
     monkFollower: Follower.CRAFTSMAN,
-    monkAction: Action.TRADING_STATION
+    monkAction: Action.TRADING_STATION,
+    difficultyLevel: [DifficultyLevel.EASY,DifficultyLevel.MEDIUM]
   },
   {
     id: '3',
@@ -48,7 +51,8 @@ const cards = [
       {follower: Follower.TRADER, actions: [Action.PLACE_CARDS_4,Action.SHIELD]},
     ],
     monkFollower: Follower.BOATMAN,
-    monkAction: Action.SHIELD
+    monkAction: Action.SHIELD,
+    difficultyLevel: [DifficultyLevel.EASY,DifficultyLevel.MEDIUM]
   },
   {
     id: '4',
@@ -63,7 +67,8 @@ const cards = [
       {follower: Follower.CRAFTSMAN, actions: [Action.TRADING_STATION]},
     ],
     monkFollower: Follower.KNIGHT,
-    monkAction: Action.SHIELD
+    monkAction: Action.SHIELD,
+    difficultyLevel: [DifficultyLevel.EASY,DifficultyLevel.MEDIUM]
   },
   {
     id: '5',
@@ -78,7 +83,8 @@ const cards = [
       {follower: Follower.FARMER, actions: [Action.CITIZEN,Action.WAREHOUSE_CITIZEN_BONUS]},
     ],
     monkFollower: Follower.KNIGHT,
-    monkAction: Action.SHIELD
+    monkAction: Action.SHIELD,
+    difficultyLevel: [DifficultyLevel.EASY,DifficultyLevel.MEDIUM,DifficultyLevel.HARD]
   },
   {
     id: '6',
@@ -93,7 +99,8 @@ const cards = [
       {follower: Follower.SCHOLAR, actions: [Action.BENEFICAL_DEED_LEFT]},
     ],
     monkFollower: Follower.KNIGHT,
-    monkAction: Action.SHIELD
+    monkAction: Action.SHIELD,
+    difficultyLevel: [DifficultyLevel.EASY,DifficultyLevel.MEDIUM,DifficultyLevel.HARD]
   },
   {
     id: '7',
@@ -108,7 +115,8 @@ const cards = [
       {follower: Follower.BOATMAN, actions: [Action.BANK_SHIELD_BONUS]},
     ],
     monkFollower: Follower.SCHOLAR,
-    monkAction: Action.SHIELD
+    monkAction: Action.SHIELD,
+    difficultyLevel: [DifficultyLevel.EASY,DifficultyLevel.MEDIUM,DifficultyLevel.HARD]
   },
   {
     id: '8',
@@ -123,7 +131,8 @@ const cards = [
       {follower: Follower.KNIGHT, actions: [Action.CITIZEN]},
     ],
     monkFollower: Follower.BOATMAN,
-    monkAction: Action.SHIELD
+    monkAction: Action.SHIELD,
+    difficultyLevel: [DifficultyLevel.EASY,DifficultyLevel.MEDIUM,DifficultyLevel.HARD]
   },
   {
     id: '9',
@@ -138,7 +147,8 @@ const cards = [
       {follower: Follower.TRADER, actions: [Action.PLACE_CARDS_2,Action.SHIELD,Action.SHIELD]},
     ],
     monkFollower: Follower.FARMER,
-    monkAction: Action.SHIELD
+    monkAction: Action.SHIELD,
+    difficultyLevel: [DifficultyLevel.EASY,DifficultyLevel.MEDIUM,DifficultyLevel.HARD]
   },
   {
     id: '10',
@@ -153,7 +163,8 @@ const cards = [
       {follower: Follower.BOATMAN, actions: [Action.BANK_SHIELD_BONUS]},
     ],
     monkFollower: Follower.FARMER,
-    monkAction: Action.SHIELD
+    monkAction: Action.SHIELD,
+    difficultyLevel: [DifficultyLevel.EASY,DifficultyLevel.MEDIUM,DifficultyLevel.HARD]
   },
   {
     id: '11',
@@ -168,7 +179,8 @@ const cards = [
       {follower: Follower.KNIGHT, actions: [Action.MONK]},
     ],
     monkFollower: Follower.SCHOLAR,
-    monkAction: Action.SHIELD
+    monkAction: Action.SHIELD,
+    difficultyLevel: [DifficultyLevel.EASY,DifficultyLevel.MEDIUM,DifficultyLevel.HARD]
   },
   {
     id: '12',
@@ -183,7 +195,8 @@ const cards = [
       {follower: Follower.SCHOLAR, actions: [Action.MONK]},
     ],
     monkFollower: Follower.SCHOLAR,
-    monkAction: Action.SHIELD
+    monkAction: Action.SHIELD,
+    difficultyLevel: [DifficultyLevel.EASY,DifficultyLevel.MEDIUM,DifficultyLevel.HARD]
   },
   {
     id: '13',
@@ -198,7 +211,8 @@ const cards = [
       {follower: Follower.BOATMAN, actions: [Action.SHIELD]},
     ],
     monkFollower: Follower.CRAFTSMAN,
-    monkAction: Action.TRADING_STATION
+    monkAction: Action.TRADING_STATION,
+    difficultyLevel: [DifficultyLevel.EASY,DifficultyLevel.MEDIUM,DifficultyLevel.HARD]
   },
   {
     id: '14',
@@ -213,7 +227,8 @@ const cards = [
       {follower: Follower.KNIGHT, actions: [Action.SHIELD]},
     ],
     monkFollower: Follower.CRAFTSMAN,
-    monkAction: Action.TRADING_STATION
+    monkAction: Action.TRADING_STATION,
+    difficultyLevel: [DifficultyLevel.EASY,DifficultyLevel.MEDIUM,DifficultyLevel.HARD]
   },
   {
     id: '1B',
@@ -228,7 +243,8 @@ const cards = [
       {follower: Follower.CRAFTSMAN, actions: [Action.TRADING_STATION]},
     ],
     monkFollower: Follower.FARMER,
-    monkAction: Action.SHIELD
+    monkAction: Action.SHIELD,
+    difficultyLevel: [DifficultyLevel.HARD]
   },
   {
     id: '2B',
@@ -243,7 +259,8 @@ const cards = [
       {follower: Follower.FARMER, actions: [Action.SHIELD,Action.SHIELD]},
     ],
     monkFollower: Follower.CRAFTSMAN,
-    monkAction: Action.TRADING_STATION
+    monkAction: Action.TRADING_STATION,
+    difficultyLevel: [DifficultyLevel.HARD]
   },
   {
     id: '3B',
@@ -258,7 +275,8 @@ const cards = [
       {follower: Follower.TRADER, actions: [Action.PLACE_CARDS_4,Action.SHIELD,Action.SHIELD]},
     ],
     monkFollower: Follower.SCHOLAR,
-    monkAction: Action.SHIELD
+    monkAction: Action.SHIELD,
+    difficultyLevel: [DifficultyLevel.HARD]
   },
   {
     id: '4B',
@@ -273,7 +291,8 @@ const cards = [
       {follower: Follower.CRAFTSMAN, actions: [Action.TRADING_STATION]},
     ],
     monkFollower: Follower.SCHOLAR,
-    monkAction: Action.SHIELD
+    monkAction: Action.SHIELD,
+    difficultyLevel: [DifficultyLevel.HARD]
   },
 ]
 
@@ -293,10 +312,11 @@ export default {
 
   /**
    * Get all cards
+   * @param difficultyLevel Difficulty Level
    * @returns cards
    */
-  getAll() : Card[] {
-    return cards
+  getAll(difficultyLevel: DifficultyLevel) : Card[] {
+    return cards.filter(card => card.difficultyLevel.includes(difficultyLevel))
   },
 
 }
