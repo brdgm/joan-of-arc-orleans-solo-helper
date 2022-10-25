@@ -31,7 +31,28 @@
     "pickTile": "Personenplättchen wählen:"
   },
   "botTurn": {
-    "title": "Johannas Zug"
+    "title": "Johannas Zug",
+    "actions": "Aktionen",
+    "action": {
+      "bank-citizen-bonus": "Hast du den Bürger bei der Bank noch nicht eingekreist, streichst du ihn durch und kreist in Johannas Bereich einen Bürger ein. Hast du ihn schon eingekreist (oder Johanna hat ihn schon zuvor durchgestrichen), erhält Johanna nichts und der Effekt verfällt.",
+      "bank-shield-bonus": "Streiche in deiner Bank den ersten gelben Bonus von links durch, der noch nicht durchgestrichen ist.",
+      "benefical-deed-left": "Streiche eines der vier Segensreichen Werke durch (von links).",
+      "benefical-deed-right": "Streiche eines der vier Segensreichen Werke durch (von rechts).",
+      "boatman-track": "Kreuze ein Feld auf der Schiffer-Leiste an.",
+      "citizen": "Kreise einen Bürger in Johannas Bereich ein.",
+      "development-level": "Kreuze die nächste Entwicklungsstufe in Johannas Bereich an.",
+      "farmer-track": "Kreuze ein Feld auf der Bauern-Leiste an.",
+      "knight-track": "Kreuze ein Feld auf der Ritter-Leiste an.",
+      "place-cards-1": "Mische die \"I\"-Ortskarten und entferne eine zufällige aus dem Spiel.",
+      "place-cards-2": "Mische die \"II\"-Ortskarten und entferne eine zufällige aus dem Spiel.",
+      "place-cards-3": "Mische die \"III\"-Ortskarten und entferne eine zufällige aus dem Spiel.",
+      "place-cards-4": "Mische die \"IV\"-Ortskarten und entferne eine zufällige aus dem Spiel.",
+      "place-cards-5": "Mische die \"V\"-Ortskarten und entferne eine zufällige aus dem Spiel.",
+      "scholar-track": "Kreuze ein Feld auf der Gelehrten-Leiste an.",
+      "shield": "Kreise 1 Schild in Johannas Depot ein.",
+      "trading-station": "Kreise 1 Kontor in Johannas Bereich ein.<br/>Streiche die Stadt mit dieser Zahl, die die Solokarte zeigt, auf deiner Landkarte durch, sofern sie noch nicht eingekreist oder durchgestrichen ist (d.h. weder du noch Johanna haben hier ein Kontor gebaut). Sollte dies allerdings der Fall sein, streichst du die Stadt mit der nächstgrößten Zahl durch, die weder durchgestrichen noch eingekreist ist (d.h. noch niemand hat dort ein Kontor errichtet).",
+      "warehouse-citizen-bonus": "Hast du den Bürger bei dem Lager noch nicht eingekreist, streichst du ihn durch und kreist in Johannas Bereich einen Bürger ein. Hast du ihn schon eingekreist (oder Johanna hat ihn schon zuvor durchgestrichen), erhält Johanna nichts und der Effekt verfällt."
+    }
   },
   "endOfGame": {
     "title": "Spielende"

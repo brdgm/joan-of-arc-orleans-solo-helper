@@ -5,7 +5,7 @@
   <div class="mb-3">
     <Icon type="follower" :name="item"
         class="follower" :class="{selected: isSelected(index), notSelected: isNotSelected(index)}"
-        v-for="(item,index) in bag.available" :key="item" @click="selectTile(index)"/>
+        v-for="(item,index) in bag.available" :key="index" @click="selectTile(index)"/>
   </div>
 
 </template>
