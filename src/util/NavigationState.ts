@@ -21,7 +21,7 @@ export default class NavigationState {
 
     this.round = parseInt(route.params['round'] as string)
     this.tile = parseInt(route.params['tile'] as string)
-    this.cardDeck = NavigationState.getCardDeck(this.round, this.tile, this.difficultyLevel, store)
+    this.cardDeck = NavigationState.getCardDeck(this.round, this.difficultyLevel, store)
     this.bag = NavigationState.getBag(this.round, this.tile, store)
 
     if (this.isBotTurn) {
@@ -43,7 +43,7 @@ export default class NavigationState {
     return !this.isPlayerTurn
   }
 
-  private static getCardDeck(round : number, tile : number, difficultyLevel: DifficultyLevel, store : Store<State>) : CardDeck {
+  private static getCardDeck(round : number, difficultyLevel: DifficultyLevel, store : Store<State>) : CardDeck {
     let cardDeck
     const currentRound = store.state.rounds.find(item => item.round==round)
     if (currentRound) {

@@ -69,7 +69,7 @@ export const store = createStore<State>({
       state.setup.difficultyLevel = level
     },
     round(state : State, round: Round) {
-      state.rounds = state.rounds.filter(item => !(item.round == round.round))
+      state.rounds = state.rounds.filter(item => item.round != round.round)
       state.rounds.push(round)
     },
     tile(state : State, tile: Tile) {

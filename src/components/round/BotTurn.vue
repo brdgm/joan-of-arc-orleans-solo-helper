@@ -18,7 +18,6 @@ import { useI18n } from 'vue-i18n'
 import Bag from '@/services/Bag'
 import Bot from '@/services/Bot'
 import Icon from '../structure/Icon.vue'
-import Action from '@/services/enum/Action'
 import Actions from './Actions.vue'
 
 export default defineComponent({
