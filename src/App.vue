@@ -31,14 +31,14 @@
           <button class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <h4><a href="https://boardgamegeek.com/boardgame/323156/stroganov" target="_blank" rel="noopener">{{t('gameTitle')}}</a></h4>
+          <h4><a href="https://boardgamegeek.com/boardgame/364641/joan-arc-orleans-draw-write" target="_blank" rel="noopener">{{t('gameTitle')}}</a></h4>
           <dl>
             <dt>Game design</dt>
-            <dd>Andreas Steding</dd>
+            <dd>Ryan Hendrickson, Reiner Stockhausen</dd>
             <dt>Artwork</dt>
-            <dd>Maciej Janik</dd>
+            <dd>Klemens Franz</dd>
             <dt>Publisher</dt>
-            <dd><a href="https://gamebrewer.com/" target="_blank" rel="noopener">Game Brewer</a></dd>
+            <dd><a href="https://www.dlp-games.de/" target="_blank" rel="noopener">dlp games</a></dd>
           </dl>
           <h4 class="border-top pt-3">{{appTitle}}</h4>
           <dl>
@@ -47,7 +47,7 @@
             <dt>Version</dt>
             <dd>{{buildNumber}}</dd>
             <dt>Source Code (Apache-2.0 License)</dt>
-            <dd><a href="https://github.com/brdgm/stroganov-solo-helper" target="_blank" rel="noopener">https://github.com/brdgm/stroganov-solo-helper</a></dd>
+            <dd><a href="https://github.com/brdgm/joan-of-arc-orleans-solo-helper" target="_blank" rel="noopener">https://github.com/brdgm/joan-of-arc-orleans-solo-helper</a></dd>
           </dl>
         </div>
         <div class="modal-footer">

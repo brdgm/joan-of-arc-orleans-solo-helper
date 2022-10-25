@@ -1,9 +1,9 @@
 {
-  "gameTitle": "Stroganov",
+  "gameTitle": "Johanna: Orléans",
   "home": {
-    "title": "Stroganov Solo Helper",
-    "play1": "Spiele gegen Ivan oder Katjuscha, die Solospiel-Gegner von <a href='https://boardgamegeek.com/boardgame/323156/stroganov' target='_blank' rel='noopener'><b>Stroganov</b></a>.",
-    "play2": "Diese Applikation ersetzt die Automa-Karten, und vereinfacht das Aufsetzen mit verschiedenen Schwierigkeitsgraden. Es ist möglich gegen bis zu 3 Ivans oder Katjuschas zu spielen.",
+    "title": "Johanna: Orléans Solo Helper",
+    "play1": "Spiele gegen Johanna, die Solospiel-Gegnerin von <a href='https://boardgamegeek.com/boardgame/364641/joan-arc-orleans-draw-write' target='_blank' rel='noopener'><b>Johanna: Orléans</b></a>.",
+    "play2": "Diese Applikation ersetzt die Automa-Karten und den Beuten mit den Personenplättchen, und vereinfacht das Aufsetzen mit verschiedenen Schwierigkeitsgraden.",
     "feedback": "Discussion and Feedback:"
   },
   "notfound": {

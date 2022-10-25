@@ -1,9 +1,9 @@
 {
-  "gameTitle": "Stroganov",
+  "gameTitle": "Joan of Arc: Orléans",
   "home": {
-    "title": "Stroganov Solo Helper",
-    "play1": "Play against Ivan or Katyusha, the Solo Mode opponents of <a href='https://boardgamegeek.com/boardgame/323156/stroganov' target='_blank' rel='noopener'><b>Stroganov</b></a>.",
-    "play2": "This helper application replaces the automa cards, and helps setting up the game with various difficulty levels. It's possible to play against up to three Ivans or Katyushas.",
+    "title": "Joan of Arc: Orléans Solo Helper",
+    "play1": "Play against Joan, the Solo Mode opponent of <a href='https://boardgamegeek.com/boardgame/364641/joan-arc-orleans-draw-write' target='_blank' rel='noopener'><b>Joan of Arc: Orléans</b></a>.",
+    "play2": "This helper application replaces the automa cards and the tile bag, and helps setting up the game with various difficulty levels.",
     "feedback": "Discussion and Feedback:"
   },
   "notfound": {
