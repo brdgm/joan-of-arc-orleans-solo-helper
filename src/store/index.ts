@@ -9,6 +9,7 @@ export interface State {
   baseFontSize: number
   setup: Setup
   rounds: Round[]
+  tiles: Tile[]
 }
 export interface Setup {
   difficultyLevel: DifficultyLevel
@@ -16,7 +17,6 @@ export interface Setup {
 export interface Round {
   round: number
   cardDeck: CardDeckPersistence
-  tiles: Tile[]
 }
 export interface Tile {
   round: number
@@ -51,7 +51,8 @@ export const store = createStore<State>({
     setup: {
       difficultyLevel: DifficultyLevel.EASY
     },
-    rounds: []
+    rounds: [],
+    tiles: []
   },
   mutations: {
     // reload state from local storage
@@ -68,19 +69,16 @@ export const store = createStore<State>({
       state.setup.difficultyLevel = level
     },
     round(state : State, round: Round) {
-      state.rounds = state.rounds.filter(item => item.round != round.round)
+      state.rounds = state.rounds.filter(item => !(item.round == round.round))
       state.rounds.push(round)
     },
     tile(state : State, tile: Tile) {
-      const round = state.rounds.find(item => item.round == tile.round)
-      if (!round) {
-        throw new Error('Round ' + tile.round + ' not found.')
-      }
-      round.tiles = round.tiles.filter(item => item.tile != tile.tile)
-      round.tiles.push(tile)
+      state.tiles = state.tiles.filter(item => !(item.round == tile.round && item.tile == tile.tile))
+      state.tiles.push(tile)
     },
     endGame(state : State) {
       state.rounds = []
+      state.tiles = []
     },
     zoomFontSize(state : State, baseFontSize: number) {
       state.baseFontSize = baseFontSize

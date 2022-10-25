@@ -4,7 +4,7 @@
   </div>
 
   <PlayerTurn v-if="playerTurn" :bag="bag" @choose-tile="playerChooseTile($event.index)"/>
-  <BotTurn v-else :cardDeck="cardDeck" :bag="bag"/>
+  <BotTurn v-if="botTurn && bot" :bot="bot" :bag="bag"/>
 
   <button v-if="nextButtonRouteTo" class="btn btn-primary btn-lg mt-3" @click="next()"
       :disabled="playerTurn && playerSelectedIndex < 0">
@@ -23,6 +23,7 @@ import FooterButtons from '@/components/structure/FooterButtons.vue'
 import NavigationState from '@/util/NavigationState'
 import BotTurn from '@/components/round/BotTurn.vue'
 import PlayerTurn from '@/components/round/PlayerTurn.vue'
+import Bag from '@/services/Bag'
 
 export default defineComponent({
   name: 'Round',
@@ -43,8 +44,9 @@ export default defineComponent({
     const bag = state.bag
     const playerTurn = state.isPlayerTurn
     const botTurn = state.isBotTurn
+    const bot = state.bot
 
-    return { t, round, tile, cardDeck, bag, playerTurn, botTurn }
+    return { t, round, tile, cardDeck, bag, playerTurn, botTurn, bot }
   },
   data() {
     return {
@@ -64,7 +66,7 @@ export default defineComponent({
       }
     },
     nextButtonRouteTo() : string {
-      if (this.round == 10 && this.tile == 5) {
+      if (this.endOfGame) {
         return '/endOfGame'
       }
       else if (this.tile == 5) {
@@ -73,15 +75,39 @@ export default defineComponent({
       else {
         return `/round/${this.round}/tile/${this.tile+1}`
       }
+    },
+    endOfGame() : boolean {
+      return this.round == 10 && this.tile == 5
     }
   },
   methods: {
     next() : void {
-      if (this.playerTurn && this.playerSelectedIndex >= 0) {
-        this.bag.chooseTilePlayer(this.bag.available[this.playerSelectedIndex])
-        this.$store.commit('tile', {round:this.round,tile:this.tile,bag:this.bag.toPersistence()})
+      if (!this.endOfGame) {
+        this.storeStateForNextRound()
       }
       this.$router.push(this.nextButtonRouteTo)
+    },
+    storeStateForNextRound() {
+      let nextRound = this.round
+      let nextTile = this.tile + 1
+      if (nextTile > 5) {
+        nextRound++
+        nextTile = 1
+      }
+      if (this.playerTurn && this.playerSelectedIndex >= 0) {
+        this.bag.chooseTilePlayer(this.bag.available[this.playerSelectedIndex])
+      }
+      if (this.botTurn && this.bot) {
+        this.bag.chooseTileBot(this.bag.available[this.bot.selectedIndex])
+      }
+      if (nextRound > this.round) {
+        this.bag.discardAll()
+        if (this.bag.inside.length == 0) {
+          this.bag = Bag.new()
+        }
+        this.bag.draw(5)
+      }
+      this.$store.commit('tile', {round:nextRound,tile:nextTile,bag:this.bag.toPersistence()})
     },
     playerChooseTile(index : number) : void {
       this.playerSelectedIndex = index

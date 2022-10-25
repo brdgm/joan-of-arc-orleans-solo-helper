@@ -65,41 +65,13 @@ export default class NavigationState {
 
   private static getBag(round : number, tile : number, store : Store<State>) : Bag {
     let bag
-    const currentRound = store.state.rounds.find(item => item.round==round)
-    if (!currentRound) {
-      throw new Error("No current round: " + round)
-    }
-    const currentTile = currentRound.tiles.find(item => item.tile == tile)
+    const currentTile = store.state.tiles.find(item => item.round == round && item.tile == tile)
     if (currentTile) {
       bag = Bag.fromPersistence(currentTile.bag)
     }
     else {
-      if (tile == 1) {
-        if (round >= 1 && round != 6) {
-          const previousRound = store.state.rounds.find(item => item.round==round-1)
-          if (previousRound) {
-            const previousTile = previousRound.tiles[previousRound.tiles.length-1]
-            if (previousTile) {
-              bag = Bag.fromPersistence(previousTile.bag)
-            }
-          }
-        }
-        if (!bag) {
-          bag = Bag.new()
-        }
-        bag.discardAll()
-        bag.draw(5)
-      }
-      else {
-        const previousTile = currentRound.tiles.find(item => item.tile==tile-1)
-        if (previousTile) {
-          bag = Bag.fromPersistence(previousTile.bag)
-        }
-        else {
-          // should never happen
-          bag = Bag.new()
-        }
-      }
+      bag = Bag.new()
+      bag.draw(5)
       store.commit('tile', {round:round,tile:tile,bag:bag.toPersistence()})
     }
     return bag
