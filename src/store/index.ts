@@ -68,13 +68,8 @@ export const store = createStore<State>({
       state.setup.difficultyLevel = level
     },
     round(state : State, round: Round) {
-      const existingRound = state.rounds.find(item => item.round == round.round)
-      if (existingRound) {
-        existingRound.cardDeck = round.cardDeck
-      }
-      else {
-        state.rounds.push(round)
-      }
+      state.rounds = state.rounds.filter(item => item.round != round.round)
+      state.rounds.push(round)
     },
     tile(state : State, tile: Tile) {
       const round = state.rounds.find(item => item.round == tile.round)
@@ -83,6 +78,9 @@ export const store = createStore<State>({
       }
       round.tiles = round.tiles.filter(item => item.tile != tile.tile)
       round.tiles.push(tile)
+    },
+    endGame(state : State) {
+      state.rounds = []
     },
     zoomFontSize(state : State, baseFontSize: number) {
       state.baseFontSize = baseFontSize

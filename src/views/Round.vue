@@ -1,11 +1,15 @@
 <template>
-  <h1>/Round/</h1>
+  <div class="roundNumber">
+    {{t('round.roundNumber', {round:round, rounds:10})}}
+  </div>
 
-  ...
+  <PlayerTurn v-if="playerTurn" :bag="bag" @choose-tile="playerChooseTile($event.index)"/>
+  <BotTurn v-else :cardDeck="cardDeck" :bag="bag"/>
 
-  <router-link v-if="nextButtonRouteTo" :to="nextButtonRouteTo" class="btn btn-primary btn-lg mt-3">
+  <button v-if="nextButtonRouteTo" class="btn btn-primary btn-lg mt-3" @click="next()"
+      :disabled="playerTurn && playerSelectedIndex < 0">
     {{t('action.next')}}
-  </router-link>
+  </button>
 
   <FooterButtons :backButtonRouteTo="backButtonRouteTo" endGameButtonType="abortGame"/>
 </template>
@@ -17,11 +21,15 @@ import { useRoute } from 'vue-router'
 import { useStore } from '@/store'
 import FooterButtons from '@/components/structure/FooterButtons.vue'
 import NavigationState from '@/util/NavigationState'
+import BotTurn from '@/components/round/BotTurn.vue'
+import PlayerTurn from '@/components/round/PlayerTurn.vue'
 
 export default defineComponent({
   name: 'Round',
   components: {
-    FooterButtons
+    FooterButtons,
+    PlayerTurn,
+    BotTurn
   },
   setup() {
     const { t } = useI18n()
@@ -31,8 +39,17 @@ export default defineComponent({
     const state = new NavigationState(route, store)
     const round = state.round
     const tile = state.tile
+    const cardDeck = state.cardDeck
+    const bag = state.bag
+    const playerTurn = state.isPlayerTurn
+    const botTurn = state.isBotTurn
 
-    return { t, round, tile }
+    return { t, round, tile, cardDeck, bag, playerTurn, botTurn }
+  },
+  data() {
+    return {
+      playerSelectedIndex: -1
+    }
   },
   computed: {
     backButtonRouteTo() : string {
@@ -57,6 +74,24 @@ export default defineComponent({
         return `/round/${this.round}/tile/${this.tile+1}`
       }
     }
+  },
+  methods: {
+    next() : void {
+      if (this.playerTurn && this.playerSelectedIndex >= 0) {
+        this.bag.chooseTilePlayer(this.bag.available[this.playerSelectedIndex])
+        this.$store.commit('tile', {round:this.round,tile:this.tile,bag:this.bag.toPersistence()})
+      }
+      this.$router.push(this.nextButtonRouteTo)
+    },
+    playerChooseTile(index : number) : void {
+      this.playerSelectedIndex = index
+    }
   }
 })
 </script>
+
+<style lang="scss" scoped>
+.roundNumber {
+  float: right;
+}
+</style>

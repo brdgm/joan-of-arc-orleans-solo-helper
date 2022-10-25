@@ -23,6 +23,19 @@
       "level3": "Special Challenge"
     }
   },
+  "round": {
+    "roundNumber": "Runde {round}/{rounds}"
+  },
+  "playerTurn": {
+    "title": "Dein Zug",
+    "pickTile": "Personenplättchen wählen:"
+  },
+  "botTurn": {
+    "title": "Johannas Zug"
+  },
+  "endOfGame": {
+    "title": "Spielende"
+  },
   "notfound": {
     "title": "Nicht Gefunden"
   },

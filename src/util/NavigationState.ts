@@ -1,5 +1,5 @@
 import DifficultyLevel from "@/services/enum/DifficultyLevel"
-import { Round, State } from "@/store"
+import { State } from "@/store"
 import { RouteLocation } from "vue-router"
 import { Store } from "vuex"
 import CardDeck from "@/services/CardDeck"
@@ -19,15 +19,8 @@ export default class NavigationState {
 
     this.round = parseInt(route.params['round'] as string)
     this.tile = parseInt(route.params['tile'] as string)
-    this.cardDeck = NavigationState.getCardDeck(this.round, this.difficultyLevel, store)
+    this.cardDeck = NavigationState.getCardDeck(this.round, this.tile, this.difficultyLevel, store)
     this.bag = NavigationState.getBag(this.round, this.tile, store)
-
-    // draw new card for first tile, draw from bag
-    if (this.tile == 1) {
-      this.cardDeck.draw()
-      store.commit('round', {round:this.round,cardDeck:this.cardDeck.toPersistence(),tiles:[]})
-      this.bag.draw(5)
-    }
   }
 
   public get isPlayerTurn() : boolean {
@@ -44,36 +37,66 @@ export default class NavigationState {
     return !this.isPlayerTurn
   }
 
-  private static getCardDeck(round : number, difficultyLevel: DifficultyLevel, store : Store<State>) : CardDeck {
-    if (round > 1) {
+  private static getCardDeck(round : number, tile : number, difficultyLevel: DifficultyLevel, store : Store<State>) : CardDeck {
+    let cardDeck
+    const currentRound = store.state.rounds.find(item => item.round==round)
+    if (currentRound) {
+      cardDeck = CardDeck.fromPersistence(currentRound.cardDeck)
+    }
+    else {
       const previousRound = store.state.rounds.find(item => item.round==round-1)
       if (previousRound) {
-        return CardDeck.fromPersistence(previousRound.cardDeck)
+        cardDeck = CardDeck.fromPersistence(previousRound.cardDeck)
       }
+      else {
+        cardDeck = CardDeck.new(difficultyLevel)
+      }
+      cardDeck.draw()
+      store.commit('round', {round:round,cardDeck:cardDeck.toPersistence(),tiles:[]})
     }
-    return CardDeck.new(difficultyLevel)
+    return cardDeck
   }
 
   private static getBag(round : number, tile : number, store : Store<State>) : Bag {
-    if (round > 1 && round != 6) {
-      if (tile > 1) {
-        const currentRound = store.state.rounds.find(item => item.round==round)
-        if (currentRound) {
-          const previousTile = currentRound.tiles.find(item => item.tile==tile-1)
-          if (previousTile) {
-            return Bag.fromPersistence(previousTile.bag)
+    let bag
+    const currentRound = store.state.rounds.find(item => item.round==round)
+    if (!currentRound) {
+      throw new Error("No current round: " + round)
+    }
+    const currentTile = currentRound.tiles.find(item => item.tile == tile)
+    if (currentTile) {
+      bag = Bag.fromPersistence(currentTile.bag)
+    }
+    else {
+      if (tile == 1) {
+        if (round >= 1 && round != 6) {
+          const previousRound = store.state.rounds.find(item => item.round==round-1)
+          if (previousRound) {
+            const previousTile = previousRound.tiles[previousRound.tiles.length-1]
+            if (previousTile) {
+              bag = Bag.fromPersistence(previousTile.bag)
+            }
           }
         }
+        if (!bag) {
+          bag = Bag.new()
+        }
+        bag.discardAll()
+        bag.draw(5)
       }
-      const previousRound = store.state.rounds.find(item => item.round==round-1)
-      if (previousRound) {
-        const previousTile = previousRound.tiles[previousRound.tiles.length-1]
+      else {
+        const previousTile = currentRound.tiles.find(item => item.tile==tile-1)
         if (previousTile) {
-          return Bag.fromPersistence(previousTile.bag)
+          bag = Bag.fromPersistence(previousTile.bag)
+        }
+        else {
+          // should never happen
+          bag = Bag.new()
         }
       }
+      store.commit('tile', {round:round,tile:tile,bag:bag.toPersistence()})
     }
-    return Bag.new()
+    return bag
   }
 
 }

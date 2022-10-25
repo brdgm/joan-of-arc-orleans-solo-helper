@@ -23,6 +23,19 @@
       "level3": "Special Challenge"
     }
   },
+  "round": {
+    "roundNumber": "Round {round}/{rounds}"
+  },
+  "playerTurn": {
+    "title": "Your Turn",
+    "pickTile": "Pick tile:"
+  },
+  "botTurn": {
+    "title": "Joan's Turn"
+  },
+  "endOfGame": {
+    "title": "End Of Game"
+  },
   "notfound": {
     "title": "Not Found"
   },

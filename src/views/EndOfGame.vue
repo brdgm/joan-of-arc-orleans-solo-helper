@@ -1,5 +1,5 @@
 <template>
-  <h1>/EndOfGame/</h1>
+  <h1 v-html="t('endOfGame.title')"></h1>
 
   ...
 
@@ -12,7 +12,7 @@ import { useI18n } from 'vue-i18n'
 import FooterButtons from '@/components/structure/FooterButtons.vue'
 
 export default defineComponent({
-  name: 'Round',
+  name: 'EndOfGame',
   components: {
     FooterButtons
   },
