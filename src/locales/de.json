@@ -3,14 +3,14 @@
   "home": {
     "title": "Johanna: Orléans Solo Helper",
     "play1": "Spiele gegen Johanna, die Solospiel-Gegnerin von <a href='https://boardgamegeek.com/boardgame/364641/joan-arc-orleans-draw-write' target='_blank' rel='noopener'><b>Johanna: Orléans</b></a>.",
-    "play2": "Diese Applikation ersetzt die Automa-Karten und den Beuten mit den Personenplättchen, und vereinfacht das Aufsetzen mit verschiedenen Schwierigkeitsgraden.",
+    "play2": "Diese Applikation ersetzt die Automa-Karten und den Beutel mit den Personenplättchen, und vereinfacht das Aufsetzen mit verschiedenen Schwierigkeitsgraden.",
     "feedback": "Discussion and Feedback:"
   },
   "setup": {
     "title": "Spielaufbau",
     "preparation": {
       "title": "Vorbereitung",
-      "takeSheet": "Nehme 1 Blatt vom Block und verwende die Rückseite.",
+      "takeSheet": "Nimm 1 Blatt vom Block und verwende die Rückseite.",
       "placeCards": "Mische die insgesamt 30 Ortskarten und lege von jeder der 5 Stufen (I bis V) je 4 Ortskarten offen aus.",
       "remainingCards": "Die übrigen 2 Karten jeder Stufe legst du zurück in die Schachtel."
     },
