@@ -1,0 +1,90 @@
+{
+  "gameTitle": "Joan of Arc: Orléans",
+  "home": {
+    "title": "Joan of Arc: Orléans Solo Helper",
+    "play1": "Play against Joan, the Solo Mode opponent of <a href='https://boardgamegeek.com/boardgame/364641/joan-arc-orleans-draw-write' target='_blank' rel='noopener'><b>Joan of Arc: Orléans</b></a>.",
+    "play2": "This helper application replaces the automa cards and the tile bag, and helps setting up the game with various difficulty levels.",
+    "feedback": "Discussion and Feedback:"
+  },
+  "setup": {
+    "title": "Setup Game",
+    "preparation": {
+      "title": "Preparation",
+      "takeSheet": "Take 1 sheet from the pad and use its back side.",
+      "placeCards": "Shuffle the Place cards and lay out 4 Place cards of each of the 5 categories (I to V) face up.",
+      "remainingCards": "Put the remaining 2 cards of each category back into the box."
+    },
+    "difficultyLevel": {
+      "title": "Difficulty Level",
+      "easy": "Easy",
+      "hard": "Hard",
+      "level1": "Standard",
+      "level2": "Connoisseur Variant",
+      "level3": "Special Challenge"
+    }
+  },
+  "round": {
+    "roundNumber": "Round {round}/{rounds}",
+    "monkBonusAction": {
+      "title": "Monk Bonus Action",
+      "intro": "If Joan gets a monk bonus action:"
+    }
+  },
+  "playerTurn": {
+    "title": "Your Turn",
+    "pickTile": "Pick tile:"
+  },
+  "botTurn": {
+    "title": "Joan's Turn",
+    "actions": "Actions",
+    "action": {
+      "bank-citizen-bonus": "If you have not yet circled the citizen in the bank, strike him out and circle a citizen in Joan’s area. If you have already circled him (or Joan has previously struck him out), Joan gets nothing and the effect is forfeited.",
+      "bank-shield-bonus": "In your bank, strike out the first yellow bonus from the left that has not yet been struck out.",
+      "benefical-deed-left": "Strike out one of the four Beneficial Deeds (from left).",
+      "benefical-deed-right": "Strike out one of the four Beneficial Deeds (from right).",
+      "boatman-track": "Mark a space on the boatman track.",
+      "citizen": "Circle a citizen in Joan’s area.",
+      "development-level": "Mark the next Development level in Joan’s area.",
+      "farmer-track": "Mark a space on the farmer track.",
+      "knight-track": "Mark a space on the knight track.",
+      "place-cards-1": "Shuffle the \"I\" place cards and remove a random one from the game.",
+      "place-cards-2": "Shuffle the \"II\" place cards and remove a random one from the game.",
+      "place-cards-3": "Shuffle the \"III\" place cards and remove a random one from the game.",
+      "place-cards-4": "Shuffle the \"IV\" place cards and remove a random one from the game.",
+      "place-cards-5": "Shuffle the \"V\" place cards and remove a random one from the game.",
+      "scholar-track": "Mark a space on the scholar track.",
+      "shield": "Circle 1 shield in Joan’s depot.",
+      "trading-station": "Circle 1 trading station in Joan’s area.<br/>On your map, strike out the town with the number shown on the solo card, provided it hasn’t yet been circled or struck out (that means that neither you nor Joan have built a trading station here). But if this is the case, strike out the town with the next higher number that has neither been struck out nor circled (that means that nobody has yet built a trading station there).",
+      "warehouse-citizen-bonus": "If you have not yet circled the citizen in the warehouse, strike him out and circle a citizen in Joan’s area. If you have already circled him (or Joan has previously struck him out), Joan gets nothing and the effect is forfeited."
+    }
+  },
+  "endOfGame": {
+    "title": "End Of Game",
+    "tradingStationMajority": "As usual, whoever has built more trading stations circles 1 citizen.",
+    "victoryPoints": "Tally up your victory points as usual. Enter the values for Joan into her area:",
+    "victoryPointsJoan1": "the total of all victory points for the marked Farmers, Boatmen, and Knights",
+    "victoryPointsJoan2": "the total of the circled shields in Joan’s depot",
+    "victoryPointsJoan3": "the total number of the circled trading stations and citizens, multiplied by the highest marked Development level.",
+    "scoringResult": "The total of all these 5 values is Joan’s score. If you have at least the same number of victory points as Joan, you win the game!"
+  },
+  "notfound": {
+    "title": "Not Found"
+  },
+  "action": {
+    "playGame": "Play Game",
+    "startGame": "Start Game",
+    "next": "Next",
+    "nextRound": "Next Round",
+    "abortGame": "Abort Game",
+    "abortGameConfirm": "Aborting the running game - are you sure?",
+    "endGame": "End Game",
+    "endGameConfirm": "End this game and return to home screen - are you sure?",
+    "cancel": "Cancel",
+    "backToHome": "Back to Home",
+    "back": "Back",
+    "close": "Close"
+  },
+  "footer": {
+    "credits": "Credits"
+  }
+}
