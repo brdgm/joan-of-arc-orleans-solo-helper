@@ -8,31 +8,24 @@
   </div>
 
   <h2 v-html="t('botTurn.actions')"></h2>
-  <table class="mb-3">
-    <tr v-for="(action,index) in bot.actions" :key="index">
-      <td class="actionCell">
-        <div v-if="isTradingStation(action)" class="townNumber">{{bot.townNumber}}</div>
-        <Icon type="action" :name="action" class="action"/>
-      </td>
-      <td v-html="t(`botTurn.action.${action}`)" class="text-muted small"></td>
-    </tr>
-  </table>
+  <Actions :actions="bot.actions" :town-number="bot.townNumber"/>
 
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { useStore } from '@/store'
 import Bag from '@/services/Bag'
 import Bot from '@/services/Bot'
 import Icon from '../structure/Icon.vue'
 import Action from '@/services/enum/Action'
+import Actions from './Actions.vue'
 
 export default defineComponent({
   name: 'BotTurn',
   components: {
-    Icon
+    Icon,
+    Actions
   },
   props: {
     bot: {
@@ -46,8 +39,6 @@ export default defineComponent({
   },
   setup() {
     const { t } = useI18n()
-    useStore()
-
     return { t }
   },
   methods: {
@@ -56,9 +47,6 @@ export default defineComponent({
     },
     isNotSelected(index : number) {
       return this.bot.selectedIndex != index
-    },
-    isTradingStation(action : Action) {
-      return action == Action.TRADING_STATION
     }
   }
 })
@@ -79,22 +67,6 @@ export default defineComponent({
     height: 6rem;
     margin-top: 0;
     margin-bottom: 0;
-  }
-}
-.actionCell {
-  position: relative;
-  text-align: center;
-  vertical-align: top;
-  .action {
-    height: 3rem;
-    margin: 0.5rem;
-  }
-  .townNumber {
-    position: absolute;
-    left: 2.1rem;
-    top: 1.3rem;
-    width: 2rem;
-    font-weight: bold;
   }
 }
 </style>

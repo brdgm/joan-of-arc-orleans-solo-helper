@@ -24,7 +24,11 @@
     }
   },
   "round": {
-    "roundNumber": "Round {round}/{rounds}"
+    "roundNumber": "Round {round}/{rounds}",
+    "monkBonusAction": {
+      "title": "Monk Bonus Action",
+      "intro": "If Joan gets a monk bonus action:"
+    }
   },
   "playerTurn": {
     "title": "Your Turn",

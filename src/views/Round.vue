@@ -1,6 +1,7 @@
 <template>
   <div class="roundNumber">
-    {{t('round.roundNumber', {round:round, rounds:10})}}
+    <p>{{t('round.roundNumber', {round:round, rounds:10})}}</p>
+    <Icon v-if="botTurn" type="follower" name="monk" class="monkBonusAction" data-bs-toggle="modal" data-bs-target="#monkBonusActionModal"/>
   </div>
 
   <PlayerTurn v-if="playerTurn" :bag="bag" @choose-tile="playerChooseTile($event.index)"/>
@@ -12,6 +13,25 @@
   </button>
 
   <FooterButtons :backButtonRouteTo="backButtonRouteTo" endGameButtonType="abortGame"/>
+
+  <div class="modal" id="monkBonusActionModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">{{t('round.monkBonusAction.title')}}</h5>
+          <button class="btn-close" data-bs-dismiss="modal" :aria-label="t('action.close')"></button>
+        </div>
+        <div class="modal-body">
+          <p v-html="t('round.monkBonusAction.intro')"></p>
+          <Actions v-if="bot" :actions="bot.monkBonusActions" :town-number="bot.townNumber"/>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">{{t('action.close')}}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </template>
 
 <script lang="ts">
@@ -24,13 +44,17 @@ import NavigationState from '@/util/NavigationState'
 import BotTurn from '@/components/round/BotTurn.vue'
 import PlayerTurn from '@/components/round/PlayerTurn.vue'
 import Bag from '@/services/Bag'
+import Icon from '@/components/structure/Icon.vue'
+import Actions from '@/components/round/Actions.vue'
 
 export default defineComponent({
   name: 'Round',
   components: {
     FooterButtons,
     PlayerTurn,
-    BotTurn
+    BotTurn,
+    Icon,
+    Actions
   },
   setup() {
     const { t } = useI18n()
@@ -119,5 +143,10 @@ export default defineComponent({
 <style lang="scss" scoped>
 .roundNumber {
   float: right;
+  text-align: right;
+}
+.monkBonusAction {
+  height: 2rem;
+  cursor: pointer;
 }
 </style>

@@ -24,7 +24,11 @@
     }
   },
   "round": {
-    "roundNumber": "Runde {round}/{rounds}"
+    "roundNumber": "Runde {round}/{rounds}",
+    "monkBonusAction": {
+      "title": "Bonus Mönch-Aktion",
+      "intro": "Wenn Johanna eine Bonus Mönch-Aktion erhält:"
+    }
   },
   "playerTurn": {
     "title": "Dein Zug",
