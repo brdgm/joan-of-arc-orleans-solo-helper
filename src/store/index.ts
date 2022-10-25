@@ -8,9 +8,20 @@ export interface State {
   language: string
   baseFontSize: number
   setup: Setup
+  rounds: Round[]
 }
 export interface Setup {
   difficultyLevel: DifficultyLevel
+}
+export interface Round {
+  round: number
+  cardDeck: CardDeckPersistence
+  tiles: Tile[]
+}
+export interface Tile {
+  round: number
+  tile: number
+  bag: BagPersistence
 }
 export interface CardDeckPersistence {
   deck: string[]
@@ -18,8 +29,10 @@ export interface CardDeckPersistence {
 }
 export interface BagPersistence {
   inside: string[]
-  active: string[]
-  holding: string[]
+  available: string[]
+  chosenPlayer: string[]
+  chosenBot: string[]
+  discard: string[]
 }
 
 declare module '@vue/runtime-core' {
@@ -37,7 +50,8 @@ export const store = createStore<State>({
     baseFontSize: 1.0,
     setup: {
       difficultyLevel: DifficultyLevel.EASY
-    }
+    },
+    rounds: []
   },
   mutations: {
     // reload state from local storage
@@ -52,6 +66,23 @@ export const store = createStore<State>({
     },
     setupDifficultyLevel(state : State, level: number) {
       state.setup.difficultyLevel = level
+    },
+    round(state : State, round: Round) {
+      const existingRound = state.rounds.find(item => item.round == round.round)
+      if (existingRound) {
+        existingRound.cardDeck = round.cardDeck
+      }
+      else {
+        state.rounds.push(round)
+      }
+    },
+    tile(state : State, tile: Tile) {
+      const round = state.rounds.find(item => item.round == tile.round)
+      if (!round) {
+        throw new Error('Round ' + tile.round + ' not found.')
+      }
+      round.tiles = round.tiles.filter(item => item.tile != tile.tile)
+      round.tiles.push(tile)
     },
     zoomFontSize(state : State, baseFontSize: number) {
       state.baseFontSize = baseFontSize

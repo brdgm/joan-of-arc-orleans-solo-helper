@@ -4,29 +4,42 @@ import Follower from "./enum/Follower"
 
 /**
  * Bag with follower tiles.
+ * Also manages the available and chosen tiles by player/bot, and the discard (holding) area.
  */
 export default class Bag {
 
   private _inside : Follower[]
-  private _active : Follower[]
-  private _holding : Follower[]
+  private _available : Follower[]
+  private _chosenPlayer : Follower[]
+  private _chosenBot : Follower[]
+  private _discard : Follower[]
 
-  public constructor(inside : Follower[], active : Follower[], holding : Follower[]) {
+  public constructor(inside : Follower[], available : Follower[], chosenPlayer : Follower[], chosenBot : Follower[], discard : Follower[]) {
     this._inside = inside
-    this._active = active
-    this._holding = holding
+    this._available = available
+    this._chosenPlayer = chosenPlayer
+    this._chosenBot = chosenBot
+    this._discard = discard
   }
 
   public get inside() : readonly Follower[] {
     return this._inside
   }
 
-  public get active() : readonly Follower[] {
-    return this._active
+  public get available() : readonly Follower[] {
+    return this._available
   }
 
-  public get holding() : readonly Follower[] {
-    return this._holding
+  public get chosenPlayer() : readonly Follower[] {
+    return this._chosenPlayer
+  }
+
+  public get chosenBot() : readonly Follower[] {
+    return this._chosenBot
+  }
+
+  public get discard() : readonly Follower[] {
+    return this._discard
   }
 
   /**
@@ -35,8 +48,10 @@ export default class Bag {
   public toPersistence() : BagPersistence {
     return {
       inside: this._inside.map(follower => follower.toString()),
-      active: this._active.map(follower => follower.toString()),
-      holding: this._holding.map(follower => follower.toString())
+      available: this._available.map(follower => follower.toString()),
+      chosenPlayer: this._chosenPlayer.map(follower => follower.toString()),
+      chosenBot: this._chosenBot.map(follower => follower.toString()),
+      discard: this._discard.map(follower => follower.toString())
     }
   }
 
@@ -48,7 +63,7 @@ export default class Bag {
     for (let i=0; i<count; i++) {
       const tile = this._inside.shift()
       if (tile) {
-        this._active.push(tile)
+        this._available.push(tile)
       }
       else {
         throw new Error('No tile left in bag.')
@@ -57,18 +72,40 @@ export default class Bag {
   }
 
   /**
-   * Moves tile to holding area
-   * @param follower Follower
+   * Choose a tile for the player.
+   * @param follower follower
    */
-  public discard(follower : Follower) : void {
-    const index = this._active.indexOf(follower)
-    if (index >= 0) {
-      this._active.splice(index, 1)
-      this._holding.push(follower)
+  public chooseTilePlayer(follower : Follower) : void {
+    Bag.chooseTile(follower, this._available, this._chosenPlayer)
+  }
+
+  /**
+   * Choose a tile for the bot.
+   * @param follower follower
+   */
+  public chooseTileBot(follower : Follower) : void {
+    Bag.chooseTile(follower, this._available, this._chosenBot)
+  }
+
+  private static chooseTile(follower : Follower, available : Follower[], chosen : Follower[]) : void {
+    const index = available.indexOf(follower)
+    if (index < 0) {
+      throw new Error("Tile not available: " + follower)
     }
-    else {
-      throw new Error("No tile in active area: " + follower)
-    }
+    available.splice(index, 1)
+    chosen.push(follower)
+  }
+
+  /**
+   * Discard all tiles.
+   */
+  public discardAll() : void {
+    this._discard.push(...this._available)
+    this._discard.push(...this._chosenPlayer)
+    this._discard.push(...this._chosenBot)
+    this._available = []
+    this._chosenPlayer = []
+    this._chosenBot = []
   }
 
   /**
@@ -84,12 +121,10 @@ export default class Bag {
       Follower.SCHOLAR,Follower.SCHOLAR,Follower.SCHOLAR,Follower.SCHOLAR,Follower.SCHOLAR
     ]
     inside = _.shuffle(inside)
-    const bag = new Bag(inside, [], [])
+    const bag = new Bag(inside, [], [], [], [])
     // draw first two tiles and put to holding
-    for (let i=0; i<2; i++) {
-      bag.draw(1)
-      bag.discard(bag.active[0])
-    }
+    bag.draw(2)
+    bag.discardAll()
     return bag
   }
 
@@ -99,8 +134,10 @@ export default class Bag {
   public static fromPersistence(persistence : BagPersistence) : Bag {
     return new Bag(
       persistence.inside.map(name => name as Follower),
-      persistence.active.map(name => name as Follower),
-      persistence.holding.map(name => name as Follower)
+      persistence.available.map(name => name as Follower),
+      persistence.chosenPlayer.map(name => name as Follower),
+      persistence.chosenBot.map(name => name as Follower),
+      persistence.discard.map(name => name as Follower)
     )
   }
 

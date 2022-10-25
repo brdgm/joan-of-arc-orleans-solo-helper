@@ -3,7 +3,7 @@ import DifficultyLevel from '@/services/enum/DifficultyLevel'
 import { expect } from 'chai'
 
 describe('CardDeck', () => {
-  it('new', () => {
+  it('newAndDraw', () => {
     const cardDeck = CardDeck.new(DifficultyLevel.EASY)
 
     expect(cardDeck.deck.length, 'deck size').to.eq(14)
