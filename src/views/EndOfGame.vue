@@ -1,7 +1,14 @@
 <template>
   <h1 v-html="t('endOfGame.title')"></h1>
 
-  ...
+  <p v-html="t('endOfGame.tradingStationMajority')"></p>
+  <p v-html="t('endOfGame.victoryPoints')"></p>
+  <ul>
+    <li v-html="t('endOfGame.victoryPointsJoan1')"></li>
+    <li v-html="t('endOfGame.victoryPointsJoan2')"></li>
+    <li v-html="t('endOfGame.victoryPointsJoan3')"></li>
+  </ul>
+  <p v-html="t('endOfGame.scoringResult')"></p>
 
   <FooterButtons :backButtonRouteTo="backButtonRouteTo" endGameButtonType="endGame"/>
 </template>

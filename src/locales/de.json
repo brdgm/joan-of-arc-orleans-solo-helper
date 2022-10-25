@@ -55,7 +55,13 @@
     }
   },
   "endOfGame": {
-    "title": "Spielende"
+    "title": "Spielende",
+    "tradingStationMajority": "Wie gewohnt darf jene Person, die mehr Kontore bauen konnte, 1 Bürger einkreisen.",
+    "victoryPoints": "Du berechnest deine Siegpunkte wie gewohnt. Für Johanna füllst du die Werte in ihren Bereich:",
+    "victoryPointsJoan1": "die Summe aller Siegpunkte unter angekreuzten Bauern bzw. Schiffern bzw. Rittern,",
+    "victoryPointsJoan2": "die Summe der eingekreisten Schilde in Johannas Depot,",
+    "victoryPointsJoan3": "die Anzahl der eingekreisten Kontore und Bürger, multipliziert mit der höchsten angekreuzten Entwicklungsstufe.",
+    "scoringResult": "Die Summe dieser 5 Werte ergibt Johannas Siegpunkte. Hast du zumindest gleich viele Siegpunkte wie Johanna, hast du das Spiel gewonnen!"
   },
   "notfound": {
     "title": "Nicht Gefunden"

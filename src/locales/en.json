@@ -55,7 +55,13 @@
     }
   },
   "endOfGame": {
-    "title": "End Of Game"
+    "title": "End Of Game",
+    "tradingStationMajority": "As usual, whoever has built more trading stations circles 1 citizen.",
+    "victoryPoints": "Tally up your victory points as usual. Enter the values for Joan into her area:",
+    "victoryPointsJoan1": "the total of all victory points for the marked Farmers, Boatmen, and Knights",
+    "victoryPointsJoan2": "the total of the circled shields in Joan’s depot",
+    "victoryPointsJoan3": "the total number of the circled trading stations and citizens, multiplied by the highest marked Development level.",
+    "scoringResult": "The total of all these 5 values is Joan’s score. If you have at least the same number of victory points as Joan, you win the game!"
   },
   "notfound": {
     "title": "Not Found"
