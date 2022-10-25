@@ -6,6 +6,23 @@
     "play2": "This helper application replaces the automa cards and the tile bag, and helps setting up the game with various difficulty levels.",
     "feedback": "Discussion and Feedback:"
   },
+  "setup": {
+    "title": "Setup Game",
+    "preparation": {
+      "title": "Preparation",
+      "takeSheet": "Take 1 sheet from the pad and use its back side.",
+      "placeCards": "Shuffle the Place cards and lay out 4 Place cards of each of the 5 categories (I to V) face up.",
+      "remainingCards": "Put the remaining 2 cards of each category back into the box."
+    },
+    "difficultyLevel": {
+      "title": "Difficulty Level",
+      "easy": "Easy",
+      "hard": "Hard",
+      "level1": "Standard",
+      "level2": "Connoisseur Variant",
+      "level3": "Special Challenge"
+    }
+  },
   "notfound": {
     "title": "Not Found"
   },
