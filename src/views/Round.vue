@@ -1,7 +1,7 @@
 <template>
   <div class="roundNumber">
     <p>{{t('round.roundNumber', {round:round, rounds:10})}}</p>
-    <Icon v-if="botTurn" type="follower" name="monk" class="monkBonusAction" data-bs-toggle="modal" data-bs-target="#monkBonusActionModal"/>
+    <Icon v-if="isMonkActionAvailable" type="follower" name="monk" class="monkBonusAction" data-bs-toggle="modal" data-bs-target="#monkBonusActionModal"/>
   </div>
 
   <PlayerTurn v-if="playerTurn" :bag="bag" @choose-tile="playerChooseTile($event.index)"/>
@@ -46,6 +46,7 @@ import PlayerTurn from '@/components/round/PlayerTurn.vue'
 import Bag from '@/services/Bag'
 import Icon from '@/components/structure/Icon.vue'
 import Actions from '@/components/round/Actions.vue'
+import DifficultyLevel from '@/services/enum/DifficultyLevel'
 
 export default defineComponent({
   name: 'Round',
@@ -69,8 +70,9 @@ export default defineComponent({
     const playerTurn = state.isPlayerTurn
     const botTurn = state.isBotTurn
     const bot = state.bot
+    const difficultyLevel = state.difficultyLevel
 
-    return { t, round, tile, cardDeck, bag, playerTurn, botTurn, bot }
+    return { t, round, tile, cardDeck, bag, playerTurn, botTurn, bot, difficultyLevel }
   },
   data() {
     return {
@@ -102,6 +104,9 @@ export default defineComponent({
     },
     endOfGame() : boolean {
       return this.round == 10 && this.tile == 5
+    },
+    isMonkActionAvailable() : boolean {
+      return this.botTurn && this.difficultyLevel != DifficultyLevel.EASY
     }
   },
   methods: {

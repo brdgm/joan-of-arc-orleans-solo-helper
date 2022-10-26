@@ -5,7 +5,7 @@
         <div v-if="isTradingStation(action)" class="townNumber">{{townNumber}}</div>
         <Icon type="action" :name="action" class="action"/>
       </td>
-      <td v-html="t(`botTurn.action.${action}`)" class="text-muted small"></td>
+      <td v-html="t(`botTurn.action.${action}`, {townNumber:townNumber})" class="text-muted small"></td>
     </tr>
   </table>
 </template>
@@ -64,6 +64,7 @@ export default defineComponent({
     top: 1.3rem;
     width: 2rem;
     font-weight: bold;
+    z-index: 100;
   }
 }
 </style>
