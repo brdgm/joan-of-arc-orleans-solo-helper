@@ -41,6 +41,12 @@ export default defineComponent({
     const { t } = useI18n()
     return { t }
   },
+  mounted() {
+    // auto-select if there is only 1 tile left
+    if (this.bag.available.length == 1) {
+      this.selectTile(0)
+    }
+  },
   methods: {
     selectTile(index : number) {
       this.selectedIndex = index
