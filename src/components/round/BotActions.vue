@@ -3,7 +3,7 @@
     <tr v-for="(action,index) in typedActions" :key="index">
       <td class="actionCell">
         <div v-if="isTradingStation(action)" class="townNumber">{{townNumber}}</div>
-        <Icon type="action" :name="action" class="action"/>
+        <AppIcon type="action" :name="action" class="action"/>
       </td>
       <td v-html="t(`botTurn.action.${action}`, {townNumber:townNumber})" class="text-muted small"></td>
     </tr>
@@ -13,13 +13,13 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
-import Icon from '../structure/Icon.vue'
+import AppIcon from '../structure/AppIcon.vue'
 import Action from '@/services/enum/Action'
 
 export default defineComponent({
-  name: 'Actions',
+  name: 'BotActions',
   components: {
-    Icon
+    AppIcon
   },
   props: {
     actions: {
