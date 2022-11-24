@@ -1,7 +1,7 @@
 <template>
   <h1>{{t('setup.title')}}</h1>
 
-  <h2 v-html="t('setup.preparation.title')"></h2>
+  <h3 v-html="t('setup.preparation.title')"></h3>
   <ol>
     <li v-html="t('setup.preparation.takeSheet')"></li>
     <li v-html="t('setup.preparation.placeCards')"></li>

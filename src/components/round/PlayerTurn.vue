@@ -3,7 +3,7 @@
 
   <p v-html="t('playerTurn.pickTile')"></p>
   <div class="mb-3">
-    <Icon type="follower" :name="item"
+    <AppIcon type="follower" :name="item"
         class="follower" :class="{selected: isSelected(index), notSelected: isNotSelected(index)}"
         v-for="(item,index) in bag.available" :key="index" @click="selectTile(index)"/>
   </div>
@@ -14,12 +14,12 @@
 import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
 import Bag from '@/services/Bag'
-import Icon from '../structure/Icon.vue'
+import AppIcon from '../structure/AppIcon.vue'
 
 export default defineComponent({
   name: "PlayerTurn",
   components: {
-    Icon
+    AppIcon
   },
   props: {
     bag: {

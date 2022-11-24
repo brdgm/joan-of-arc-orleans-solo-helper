@@ -1,7 +1,7 @@
 <template>
   <div class="roundNumber">
     <p>{{t('round.roundNumber', {round:round, rounds:10})}}</p>
-    <Icon v-if="isMonkActionAvailable" type="follower" name="monk" class="monkBonusAction" data-bs-toggle="modal" data-bs-target="#monkBonusActionModal"/>
+    <AppIcon v-if="isMonkActionAvailable" type="follower" name="monk" class="monkBonusAction" data-bs-toggle="modal" data-bs-target="#monkBonusActionModal"/>
   </div>
 
   <PlayerTurn v-if="playerTurn" :bag="bag" @choose-tile="playerChooseTile($event.index)"/>
@@ -23,7 +23,7 @@
         </div>
         <div class="modal-body">
           <p v-html="t('round.monkBonusAction.intro')"></p>
-          <Actions v-if="bot" :actions="bot.monkBonusActions" :town-number="bot.townNumber"/>
+          <BotActions v-if="bot" :actions="bot.monkBonusActions" :town-number="bot.townNumber"/>
         </div>
         <div class="modal-footer">
           <button class="btn btn-secondary" data-bs-dismiss="modal">{{t('action.close')}}</button>
@@ -44,18 +44,18 @@ import NavigationState from '@/util/NavigationState'
 import BotTurn from '@/components/round/BotTurn.vue'
 import PlayerTurn from '@/components/round/PlayerTurn.vue'
 import Bag from '@/services/Bag'
-import Icon from '@/components/structure/Icon.vue'
-import Actions from '@/components/round/Actions.vue'
+import AppIcon from '@/components/structure/AppIcon.vue'
+import BotActions from '@/components/round/BotActions.vue'
 import DifficultyLevel from '@/services/enum/DifficultyLevel'
 
 export default defineComponent({
-  name: 'Round',
+  name: 'RoundTurn',
   components: {
     FooterButtons,
     PlayerTurn,
     BotTurn,
-    Icon,
-    Actions
+    AppIcon,
+    BotActions
   },
   setup() {
     const { t } = useI18n()

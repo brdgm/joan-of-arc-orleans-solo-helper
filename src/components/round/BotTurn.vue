@@ -2,13 +2,13 @@
   <h1 v-html="t('botTurn.title')"></h1>
 
   <div class="mb-3">
-    <Icon type="follower" :name="item"
+    <AppIcon type="follower" :name="item"
         class="follower" :class="{selected: isSelected(index), notSelected: isNotSelected(index)}"
         v-for="(item,index) in bag.available" :key="index"/>
   </div>
 
   <h2 v-html="t('botTurn.actions')"></h2>
-  <Actions :actions="bot.actions" :town-number="bot.townNumber"/>
+  <BotActions :actions="bot.actions" :town-number="bot.townNumber"/>
 
 </template>
 
@@ -17,14 +17,14 @@ import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
 import Bag from '@/services/Bag'
 import Bot from '@/services/Bot'
-import Icon from '../structure/Icon.vue'
-import Actions from './Actions.vue'
+import AppIcon from '../structure/AppIcon.vue'
+import BotActions from './BotActions.vue'
 
 export default defineComponent({
   name: 'BotTurn',
   components: {
-    Icon,
-    Actions
+    AppIcon,
+    BotActions
   },
   props: {
     bot: {
