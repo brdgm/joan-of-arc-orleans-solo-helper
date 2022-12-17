@@ -76,7 +76,7 @@ export const store = createStore<State>({
       state.tiles = state.tiles.filter(item => !(item.round == tile.round && item.tile == tile.tile))
       state.tiles.push(tile)
     },
-    endGame(state : State) {
+    resetGame(state : State) {
       state.rounds = []
       state.tiles = []
     },
