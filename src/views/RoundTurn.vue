@@ -41,6 +41,7 @@ import AppIcon from '@/components/structure/AppIcon.vue'
 import BotActions from '@/components/round/BotActions.vue'
 import ModalDialog from 'brdgm-commons/src/components/structure/ModalDialog.vue'
 import DifficultyLevel from '@/services/enum/DifficultyLevel'
+import CardDeck from '@/services/CardDeck'
 
 export default defineComponent({
   name: 'RoundTurn',
@@ -114,24 +115,38 @@ export default defineComponent({
     storeStateForNextRound() {
       let nextRound = this.round
       let nextTile = this.tile + 1
+      let cardDeck = this.cardDeck
       if (nextTile > 5) {
         nextRound++
         nextTile = 1
       }
+      let nextBotRound = nextRound
+      let nextBotTile = nextTile
       if (this.playerTurn && this.playerSelectedIndex >= 0) {
         this.bag.chooseTilePlayer(this.bag.available[this.playerSelectedIndex])
       }
-      if (this.botTurn && this.bot) {
+      if (this.botTurn && this.bot && this.cardDeck) {
         this.bag.chooseTileBot(this.bag.available[this.bot.selectedIndex])
+        nextBotTile++
+        if (nextBotTile > 5) {
+          nextBotRound++
+          nextBotTile = 1
+        }
       }
       if (nextRound > this.round) {
         this.bag.discardAll()
         if (this.bag.inside.length == 0) {
+          // back is empty - put all tiles bag in bag, and shuffle new card deck
           this.bag = Bag.new()
+          cardDeck = CardDeck.new(this.difficultyLevel)
         }
         this.bag.draw(5)
       }
       this.$store.commit('tile', {round:nextRound,tile:nextTile,bag:this.bag.toPersistence()})
+      if (cardDeck) {
+        cardDeck.draw()
+        this.$store.commit('botTurn', {round:nextBotRound,tile:nextBotTile,cardDeck:cardDeck.toPersistence()})
+      }
     },
     playerChooseTile(index : number) : void {
       this.playerSelectedIndex = index

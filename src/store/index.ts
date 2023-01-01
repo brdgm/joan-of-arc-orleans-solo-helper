@@ -8,20 +8,21 @@ export interface State {
   language: string
   baseFontSize: number
   setup: Setup
-  rounds: Round[]
   tiles: Tile[]
+  botTurns: BotTurn[]
 }
 export interface Setup {
   difficultyLevel: DifficultyLevel
-}
-export interface Round {
-  round: number
-  cardDeck: CardDeckPersistence
 }
 export interface Tile {
   round: number
   tile: number
   bag: BagPersistence
+}
+export interface BotTurn {
+  round: number
+  tile: number
+  cardDeck: CardDeckPersistence
 }
 export interface CardDeckPersistence {
   deck: string[]
@@ -51,8 +52,8 @@ export const store = createStore<State>({
     setup: {
       difficultyLevel: DifficultyLevel.EASY
     },
-    rounds: [],
-    tiles: []
+    tiles: [],
+    botTurns: []
   },
   mutations: {
     // reload state from local storage
@@ -68,17 +69,17 @@ export const store = createStore<State>({
     setupDifficultyLevel(state : State, level: number) {
       state.setup.difficultyLevel = level
     },
-    round(state : State, round: Round) {
-      state.rounds = state.rounds.filter(item => item.round != round.round)
-      state.rounds.push(round)
-    },
     tile(state : State, tile: Tile) {
       state.tiles = state.tiles.filter(item => !(item.round == tile.round && item.tile == tile.tile))
       state.tiles.push(tile)
     },
+    botTurn(state : State, botTurn: BotTurn) {
+      state.botTurns = state.botTurns.filter(item => !(item.round == botTurn.round && item.tile == botTurn.tile))
+      state.botTurns.push(botTurn)
+    },
     resetGame(state : State) {
-      state.rounds = []
       state.tiles = []
+      state.botTurns = []
     },
     zoomFontSize(state : State, baseFontSize: number) {
       state.baseFontSize = baseFontSize
