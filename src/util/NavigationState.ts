@@ -11,8 +11,8 @@ export default class NavigationState {
   readonly difficultyLevel : DifficultyLevel
   readonly round : number
   readonly tile : number
-  readonly cardDeck : CardDeck
   readonly bag : Bag
+  readonly cardDeck? : CardDeck
   readonly bot? : Bot
 
   constructor(route : RouteLocation, store : Store<State>) {    
@@ -21,10 +21,10 @@ export default class NavigationState {
 
     this.round = parseInt(route.params['round'] as string)
     this.tile = parseInt(route.params['tile'] as string)
-    this.cardDeck = NavigationState.getCardDeck(this.round, this.difficultyLevel, store)
     this.bag = NavigationState.getBag(this.round, this.tile, store)
 
     if (this.isBotTurn) {
+      this.cardDeck = NavigationState.getCardDeck(this.round, this.tile, this.difficultyLevel, store)
       this.bot = new Bot(this.cardDeck, this.bag, this.difficultyLevel)
     }
   }
@@ -43,22 +43,16 @@ export default class NavigationState {
     return !this.isPlayerTurn
   }
 
-  private static getCardDeck(round : number, difficultyLevel: DifficultyLevel, store : Store<State>) : CardDeck {
+  private static getCardDeck(round : number, tile : number, difficultyLevel: DifficultyLevel, store : Store<State>) : CardDeck {
     let cardDeck
-    const currentRound = store.state.rounds.find(item => item.round==round)
-    if (currentRound) {
-      cardDeck = CardDeck.fromPersistence(currentRound.cardDeck)
+    const currentTurn = store.state.botTurns.find(item => item.round == round && item.tile == tile)
+    if (currentTurn) {
+      cardDeck = CardDeck.fromPersistence(currentTurn.cardDeck)
     }
     else {
-      const previousRound = store.state.rounds.find(item => item.round==round-1)
-      if (previousRound) {
-        cardDeck = CardDeck.fromPersistence(previousRound.cardDeck)
-      }
-      else {
-        cardDeck = CardDeck.new(difficultyLevel)
-      }
+      cardDeck = CardDeck.new(difficultyLevel)
       cardDeck.draw()
-      store.commit('round', {round:round,cardDeck:cardDeck.toPersistence(),tiles:[]})
+      store.commit('botTurn', {round:round,tile:tile,cardDeck:cardDeck.toPersistence()})
     }
     return cardDeck
   }

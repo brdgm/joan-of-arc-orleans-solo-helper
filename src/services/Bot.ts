@@ -46,15 +46,22 @@ export default class Bot {
   /**
    * Bot actions
    */
-   public get actions() : Action[] {
+  public get actions() : Action[] {
     return this._actions
   }
 
   /**
    * Monk bonus actions
    */
-   public get monkBonusActions() : Action[] {
+  public get monkBonusActions() : Action[] {
     return this._monkBonusActions
+  }
+
+  /**
+   * Card Deck
+   */
+  public get cardDeck() : CardDeck {
+    return this._cardDeck
   }
 
   private static selectTile(cardDeck : CardDeck, bag : Bag) : number {
