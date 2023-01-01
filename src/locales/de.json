@@ -58,6 +58,11 @@
       "shield": "Kreise <b>1 Schild</b> in Johannas Depot ein.",
       "trading-station": "Kreise <b>1 Kontor</b> in Johannas Bereich ein.<br/><b>Streiche die Stadt {townNumber}</b> auf deiner Landkarte durch, sofern sie noch nicht eingekreist oder durchgestrichen ist (d.h. weder du noch Johanna haben hier ein Kontor gebaut). Sollte dies allerdings der Fall sein, streichst du die Stadt mit der nächstgrößten Zahl durch, die weder durchgestrichen noch eingekreist ist (d.h. noch niemand hat dort ein Kontor errichtet).",
       "warehouse-citizen-bonus": "Hast du den Bürger bei dem <b>Lager</b> noch nicht eingekreist, streichst du ihn durch und kreist in Johannas Bereich einen Bürger ein. Hast du ihn schon eingekreist (oder Johanna hat ihn schon zuvor durchgestrichen), erhält Johanna nichts und der Effekt verfällt."
+    },
+    "pickPlaceCard": {
+      "title": "Ortskarte wählen",
+      "howManyCards": "Wie viele Ortskarten sind vorhanden?",
+      "removeCard": "Entferne diese Ortskarte:"
     }
   },
   "endOfGame": {
@@ -84,7 +89,8 @@
     "cancel": "Abbrechen",
     "backToHome": "Zurück zum Anfang",
     "back": "Zurück",
-    "close": "Schließen"
+    "close": "Schließen",
+    "reset": "Zurücksetzen"
   },
   "footer": {
     "credits": "Credits"

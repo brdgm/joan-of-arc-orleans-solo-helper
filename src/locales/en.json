@@ -58,6 +58,11 @@
       "shield": "Circle <b>1 shield</b> in Joan’s depot.",
       "trading-station": "Circle <b>1 trading station</b> in Joan’s area.<br/>On your map, <b>strike out the town {townNumber}</b>, provided it hasn’t yet been circled or struck out (that means that neither you nor Joan have built a trading station here). But if this is the case, strike out the town with the next higher number that has neither been struck out nor circled (that means that nobody has yet built a trading station there).",
       "warehouse-citizen-bonus": "If you have not yet circled the citizen in the <b>warehouse</b>, strike him out and circle a citizen in Joan’s area. If you have already circled him (or Joan has previously struck him out), Joan gets nothing and the effect is forfeited."
+    },
+    "pickPlaceCard": {
+      "title": "Pick Place Card",
+      "howManyCards": "How many place cards are available?",
+      "removeCard": "Remove this place card:"
     }
   },
   "endOfGame": {
@@ -84,7 +89,8 @@
     "cancel": "Cancel",
     "backToHome": "Back to Home",
     "back": "Back",
-    "close": "Close"
+    "close": "Close",
+    "reset": "Reset"
   },
   "footer": {
     "credits": "Credits"
