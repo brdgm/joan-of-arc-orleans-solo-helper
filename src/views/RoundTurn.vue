@@ -2,7 +2,11 @@
   <div class="roundNumber">
     <p>{{t('round.roundNumber', {round:round, rounds:10})}}</p>
     <AppIcon v-if="isMonkActionAvailable" type="follower" name="monk" class="monkBonusAction" data-bs-toggle="modal" data-bs-target="#monkBonusActionModal"/>
-  </div>
+    <p class="cardInfo text-muted" v-if="bot">
+      {{t('botTurn.currentCard')}} {{bot.cardDeck.activeCard.id}}<br/>
+      {{t('botTurn.nextCard')}} {{bot.cardDeck.nextCard.id}}
+    </p>
+</div>
 
   <PlayerTurn v-if="playerTurn" :bag="bag" @choose-tile="playerChooseTile($event.index)"/>
   <BotTurn v-if="botTurn && bot" :bot="bot" :bag="bag"/>
@@ -144,5 +148,9 @@ export default defineComponent({
 .monkBonusAction {
   height: 2rem;
   cursor: pointer;
+}
+.cardInfo {
+  margin-top: 1rem;
+  font-size: x-small;
 }
 </style>

@@ -37,6 +37,8 @@
   "botTurn": {
     "title": "Johannas Zug",
     "actions": "Aktionen",
+    "currentCard": "Aktuelle Karte:",
+    "nextCard": "Nächste Karte:",
     "action": {
       "bank-citizen-bonus": "Hast du den Bürger bei der <b>Bank</b> noch nicht eingekreist, streichst du ihn durch und kreist in Johannas Bereich einen Bürger ein. Hast du ihn schon eingekreist (oder Johanna hat ihn schon zuvor durchgestrichen), erhält Johanna nichts und der Effekt verfällt.",
       "bank-shield-bonus": "Streiche in deiner <b>Bank</b> den ersten gelben Bonus von links durch, der noch nicht durchgestrichen ist.",
