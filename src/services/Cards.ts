@@ -1,9 +1,9 @@
-import findMandatory from "brdgm-commons/src/util/map/findMandatory";
-import Card from "./Card";
-import Action from "./enum/Action";
-import DifficultyLevel from "./enum/DifficultyLevel";
-import Direction from "./enum/Direction";
-import Follower from "./enum/Follower";
+import findMandatory from 'brdgm-commons/src/util/map/findMandatory';
+import Card from './Card';
+import Action from './enum/Action';
+import DifficultyLevel from './enum/DifficultyLevel';
+import Direction from './enum/Direction';
+import Follower from './enum/Follower';
 
 const cards = [
   {

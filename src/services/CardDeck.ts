@@ -1,8 +1,8 @@
-import { CardDeckPersistence } from "@/store"
-import * as _ from "lodash"
-import Card from "./Card"
-import Cards from "./Cards"
-import DifficultyLevel from "./enum/DifficultyLevel"
+import { CardDeckPersistence } from '@/store'
+import * as _ from 'lodash'
+import Card from './Card'
+import Cards from './Cards'
+import DifficultyLevel from './enum/DifficultyLevel'
 
 /**
  * Deck of automa cards.

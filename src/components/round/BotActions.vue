@@ -42,7 +42,7 @@ import { useI18n } from 'vue-i18n'
 import AppIcon from '../structure/AppIcon.vue'
 import Action from '@/services/enum/Action'
 import ModalDialog from 'brdgm-commons/src/components/structure/ModalDialog.vue'
-import rollDice from "brdgm-commons/src/util/random/rollDice"
+import rollDice from 'brdgm-commons/src/util/random/rollDice'
 
 export default defineComponent({
   name: 'BotActions',

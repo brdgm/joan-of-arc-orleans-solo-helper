@@ -17,7 +17,7 @@ import Bag from '@/services/Bag'
 import AppIcon from '../structure/AppIcon.vue'
 
 export default defineComponent({
-  name: "PlayerTurn",
+  name: 'PlayerTurn',
   components: {
     AppIcon
   },

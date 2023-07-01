@@ -1,10 +1,10 @@
-import DifficultyLevel from "@/services/enum/DifficultyLevel"
-import { State } from "@/store"
-import { RouteLocation } from "vue-router"
-import { Store } from "vuex"
-import CardDeck from "@/services/CardDeck"
-import Bag from "@/services/Bag"
-import Bot from "@/services/Bot"
+import DifficultyLevel from '@/services/enum/DifficultyLevel'
+import { State } from '@/store'
+import { RouteLocation } from 'vue-router'
+import { Store } from 'vuex'
+import CardDeck from '@/services/CardDeck'
+import Bag from '@/services/Bag'
+import Bot from '@/services/Bot'
 
 export default class NavigationState {
 

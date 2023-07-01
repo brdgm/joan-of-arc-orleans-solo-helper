@@ -1,6 +1,6 @@
-import { BagPersistence } from "@/store"
-import * as _ from "lodash"
-import Follower from "./enum/Follower"
+import { BagPersistence } from '@/store'
+import * as _ from 'lodash'
+import Follower from './enum/Follower'
 
 /**
  * Bag with follower tiles.
