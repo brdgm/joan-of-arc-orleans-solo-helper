@@ -2,7 +2,7 @@
   "name": "@brdgm/joan-of-arc-orleans-solo-helper",
   "version": "1.1.2",
   "private": true,
-  "description": "Joan of Arc: Orléans Solo Helper",
+  "description": "Joan of Arc: OrlÃ©ans Solo Helper",
   "appDeployName": "joan-of-arc-orleans",
   "scripts": {
     "dev": "vite",

@@ -5,8 +5,9 @@ import SetupGame from '@/views/SetupGame.vue'
 import RoundTurn from '@/views/RoundTurn.vue'
 import EndOfGame from '@/views/EndOfGame.vue'
 import createRouter from 'brdgm-commons/src/util/router/createRouter'
+import { name } from '@/../package.json'
 
-const LOCALSTORAGE_KEY = process.env.VUE_APP_LOCALSTORAGE_KEY_PREFIX + "route"
+const LOCALSTORAGE_KEY = `${name}.route`
 
 const routes: Array<RouteRecordRaw> = [
   {
