@@ -23,7 +23,7 @@
     This is not an official Game Brewer product and has no affiliation with <a href="https://www.dlp-games.de/" target="_blank" rel="noopener">dlp games</a>.
     All art in this app is from <a href="https://www.dlp-games.de/spiele/orleans-johanna" target="_blank" rel="noopener">Joan of Arc: Orléans</a>.
     See <a href="#" data-bs-toggle="modal" data-bs-target="#creditsModal">{{t('footer.credits')}}</a>.
-    <a href="https://ko-fi.com/brdgm_me" target="_blank"><img class="kofi-button" src="@/assets/kofi_button_dark.png"/></a>
+    <a href="https://ko-fi.com/brdgm_me" target="_blank" rel="noopener"><img class="kofi-button" src="@/assets/kofi_button_dark.png"/></a>
   </p>
 
 </template>
