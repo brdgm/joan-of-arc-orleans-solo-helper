@@ -32,7 +32,8 @@
   },
   "playerTurn": {
     "title": "Tuo Turno",
-    "pickTile": "Scegli una Tessera:"
+    "pickTile": "Scegli una Tessera:",
+    "actions": "Opzioni disponibili"
   },
   "botTurn": {
     "title": "Turno di Giovanna",
@@ -98,5 +99,11 @@
   "serviceWorkerUpdatedRefresh": {
     "title": "Rilancia Applicazione",
     "notice": "L'Applicazione è stata aggiornata - vuoi ricaricarla per usare l'ultima versione?"
-  }
+  },
+  "boatman": "Colora un canale / 1 moneta<br/>Opere Benefiche: 1<br/>Birrificio (I), Barca da Pesca (II), Vascello (III), Parco (IV)",
+  "craftsman": "Costruisci una Stazione Commerciale / 1 moneta<br/>Opere Benefiche: 3, 4<br>Falegnameria (III), Orefice (V)",
+  "farmer": "1 merce a scelta<br/>Opere Benefiche: 2, 3<br/>Scuderia (I), Pascolo (I), Pagliaio (II), Caseificio (III), Vigneto (IV), Magazzino (V), Macchinario (V)",
+  "knight": "Colora una strada<br/>Opere Benefiche: 4<br>Rotta Commerciale (II), Casa sull'Albero (II), Carrozza (III), Pensione (IV)",
+  "scholar": "Avanza 1 casella nel tracciato Sviluppo<br/>Opere Benefiche: 1, 2, 3<br/>Biblioteca (I), Archivi (II), Architetto (III), Confessionale (IV), Consigliere (IV), Scuola (V)",
+  "trader": "Acquista 1 carta Luogo / 1 moneta<br/>Opere Benefiche: 2<br>Mulino a Vento (I), Cimitero (I), Distilleria (II), Falconiere (IV)"
 }

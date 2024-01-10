@@ -7,7 +7,8 @@
         class="follower" :class="{selected: isSelected(index), notSelected: isNotSelected(index)}"
         v-for="(item,index) in bag.available" :key="index" @click="selectTile(index)"/>
   </div>
-
+  <h2 v-if="selectedIndex > -1" v-html="t('playerTurn.actions')"></h2>
+  <div class="text-muted small" v-if="selectedIndex > -1" v-html="t(bag.available[selectedIndex])"></div>
 </template>
 
 <script lang="ts">
