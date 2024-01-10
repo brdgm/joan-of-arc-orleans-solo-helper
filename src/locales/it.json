@@ -18,16 +18,16 @@
       "title": "Livello difficoltà",
       "easy": "Facile",
       "hard": "Difficile",
-      "level1": "Standard",
-      "level2": "Avanzato",
-      "level3": "Sfida Speciale"
+      "level1": "Base",
+      "level2": "Esperto",
+      "level3": "Eroico"
     }
   },
   "round": {
     "roundNumber": "Round {round}/{rounds}",
     "monkBonusAction": {
       "title": "Azione Bonus Monaco",
-      "intro": "Se Giovanna ottiene un'azione bonus monaco:"
+      "intro": "Se Giovanna ottiene un'azione Bonus Monaco:"
     }
   },
   "playerTurn": {
@@ -40,13 +40,13 @@
     "currentCard": "Carta Corrente:",
     "nextCard": "Prossima Carta:",
     "action": {
-      "bank-citizen-bonus": "Se non hai ancora cerchiato il cittadino nella <b>banca</b>, eliminalo e cerchia un cittadino nell'area di Giovanna. Se l'hai già cerchiato (o Giovanna l'ha già eliminato), Giovanna non ottiene nulla.",
-      "bank-shield-bonus": "Nella tua <b/>banca</b>, elimina il primo bonus giallo da sinistra ancora disponibile.",
-      "benefical-deed-left": "Elimina una delle quattro <b>Opere Benefiche</b> (da sinistra).",
-      "benefical-deed-right": "Elimina una delle quattro <b>Opere Benefiche</b> (da destra).",
+      "bank-citizen-bonus": "Se non hai ancora cerchiato il cittadino nella <b>banca</b>, sbarralo e cerchia un cittadino nell'area di Giovanna. Se l'hai già cerchiato (o Giovanna l'ha già sbarrato), Giovanna non ottiene nulla.",
+      "bank-shield-bonus": "Nella tua <b/>banca</b>, sbarra il primo bonus giallo da sinistra ancora disponibile.",
+      "benefical-deed-left": "Sbarra una delle quattro <b>Opere Benefiche</b> (da sinistra).",
+      "benefical-deed-right": "Sbarra una delle quattro <b>Opere Benefiche</b> (da destra).",
       "boatman-track": "Segna una casella nel <b>tracciato del barcaiolo</b>.",
       "citizen": "Cerchia un <b>cittadino</b> nell'area di Giovanna.",
-      "development-level": "Segna il prossimo <b>livello di sviluppo</b> nell'area di Giovanna.",
+      "development-level": "Segna il prossimo <b>livello di sviluppo</b> nell'area di Giovanna. Se le 6 stelle sono già segnate, Giovanna non ottiene nulla.",
       "farmer-track": "Segna una casella nel <b>tracciato del contadino</b>.",
       "knight-track": "Segna una casella nel <b>tracciato del cavaliere</b>.",
       "place-cards-1": "Mescola le <b>Carte Luogo \"I\"</b> e scartane una a caso.",
@@ -56,8 +56,8 @@
       "place-cards-5": "Mescola le <b>Carte Luogo \"V\"</b> e scartane una a caso.",
       "scholar-track": "Segna una casella nel <b>tracciato dello studioso</b>.",
       "shield": "Cerchia <b>1 scudo</b> nel deposito di Giovanna.",
-      "trading-station": "Cerchia <b>1 stazione commerciale</b> nell'area di Giovanna.<br/>Nella tua mappa, <b>elimina la città {townNumber}</b>, se non è stata già cerchiata o eliminata (cioè ne tu ne Giovanna avete costruito lì). Se è questo il caso, elimina la prima città ancora disponibile con un numero maggiore.",
-      "warehouse-citizen-bonus": "Se non hai ancora cerchiato il cittadino nel <b>magazzino</b>, eliminalo e cerchia un cittadino nell'area di Giovanna. Se l'hai già cerchiato (o Giovanna l'ha già eliminato), Giovanna non ottiene nulla."
+      "trading-station": "Cerchia <b>1 stazione commerciale</b> nell'area di Giovanna.<br/>Nella tua mappa, <b>sbarra la città {townNumber}</b>, se non è stata già cerchiata o sbarrata (cioè ne tu ne Giovanna avete costruito lì). Se è questo il caso, sbarra la prima città ancora disponibile con un numero immediatamente superiore.",
+      "warehouse-citizen-bonus": "Se non hai ancora cerchiato il cittadino nel <b>magazzino</b>, sbarralo e cerchia un cittadino nell'area di Giovanna. Se l'hai già cerchiato (o Giovanna l'ha già sbarrato), Giovanna non ottiene nulla."
     },
     "pickPlaceCard": {
       "title": "Prendi Carta Luogo",
