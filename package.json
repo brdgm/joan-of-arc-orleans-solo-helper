@@ -1,6 +1,6 @@
 {
   "name": "@brdgm/joan-of-arc-orleans-solo-helper",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "private": true,
   "description": "Joan of Arc: Orléans Solo Helper",
   "appDeployName": "joan-of-arc-orleans",
