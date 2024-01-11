@@ -32,7 +32,40 @@
   },
   "playerTurn": {
     "title": "Dein Zug",
-    "pickTile": "Personenplättchen wählen:"
+    "pickTile": "Personenplättchen wählen:",
+    "actions": "Verfügbare Optionen"
+  },
+  "tileOptions": {
+    "boatman": {
+      "default": "Wasserweg ausfüllen / 1 Münze",
+      "beneficialDeeds": "Segensreiche Werke: 1",
+      "placeCards": "Brauerei (I), Fischerboot (II), Zweimaster (III), Park (IV)"
+    },
+    "craftsman": {
+      "default": "Kontor bauen / 1 Münze",
+      "beneficialDeeds": "Segensreiche Werke: 3, 4",
+      "placeCards": "Tischlerei (III), Goldschmied (V)"
+    },
+    "farmer": {
+      "default": "Beliebige Ware",
+      "beneficialDeeds": "Segensreiche Werke: 2, 3",
+      "placeCards": "Stall (I), Weide (I), Heuschober (II), Käserei (III), Winzerei (IV), Warenhaus (V), Maschine (V)"
+    },
+    "knight": {
+      "default": "Landweg ausfüllen",
+      "beneficialDeeds": "Segensreiche Werke: 4",
+      "placeCards": "Handelsroute (II), Baumhaus (II), Vierspänner (III), Gasthof (IV)"
+    },
+    "scholar": {
+      "default": "1 Feld auf der Entwicklungsleiste ankreuzen",
+      "beneficialDeeds": "Segensreiche Werke: 1, 2, 3",
+      "placeCards": "Bibliothek (I), Archiv (II), Architekt (III), Beichtstuhl (IV), Berater (IV), Schule (V)"
+    },
+    "trader": {
+      "default": "1 Ortskarte erwerben / 1 Münze",
+      "beneficialDeeds": "Segensreiche Werke: 2",
+      "placeCards": "Windmühle (I), Friedhof (I), Brennerei (II), Falknerei (IV)"
+    }
   },
   "botTurn": {
     "title": "Johannas Zug",
