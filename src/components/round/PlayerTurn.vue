@@ -7,8 +7,15 @@
         class="follower" :class="{selected: isSelected(index), notSelected: isNotSelected(index)}"
         v-for="(item,index) in bag.available" :key="index" @click="selectTile(index)"/>
   </div>
-  <h2 v-if="selectedIndex > -1" v-html="t('playerTurn.actions')"></h2>
-  <div class="text-muted small" v-if="selectedIndex > -1" v-html="t(bag.available[selectedIndex])"></div>
+
+  <template v-if="currentFollower">
+    <h6 v-html="t('playerTurn.actions')"></h6>
+    <ul class="text-muted small">
+      <li v-html="t(`tileOptions.${currentFollower}.default`)"></li>
+      <li v-html="t(`tileOptions.${currentFollower}.beneficialDeeds`)"></li>
+      <li v-html="t(`tileOptions.${currentFollower}.placeCards`)"></li>
+    </ul>
+  </template>
 </template>
 
 <script lang="ts">
@@ -16,6 +23,7 @@ import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
 import Bag from '@/services/Bag'
 import AppIcon from '../structure/AppIcon.vue'
+import Follower from '@/services/enum/Follower'
 
 export default defineComponent({
   name: 'PlayerTurn',
@@ -46,6 +54,14 @@ export default defineComponent({
     // auto-select if there is only 1 tile left
     if (this.bag.available.length == 1) {
       this.selectTile(0)
+    }
+  },
+  computed: {
+    currentFollower() : Follower|undefined {
+      if (this.selectedIndex < 0) {
+        return undefined
+      }
+      return this.bag.available[this.selectedIndex]
     }
   },
   methods: {

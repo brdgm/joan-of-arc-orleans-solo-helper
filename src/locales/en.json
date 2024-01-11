@@ -35,6 +35,38 @@
     "pickTile": "Pick tile:",
     "actions": "Available Options"
   },
+  "tileOptions": {
+    "boatman": {
+      "default": "Fill a water route / 1 coin",
+      "beneficialDeeds": "Beneficial Deeds: 1",
+      "placeCards": "Brewery (I), Fishing Boat (II), Two-Master (III), Park (IV)"
+    },
+    "craftsman": {
+      "default": "Build a trading station / 1 coin",
+      "beneficialDeeds": "Beneficial Deeds: 3, 4",
+      "placeCards": "Joinery (III), Goldsmith (V)"
+    },
+    "farmer": {
+      "default": "Any one good",
+      "beneficialDeeds": "Beneficial Deeds: 2, 3",
+      "placeCards": "Stable (I), Meadow (I), Hayrick (II), Cheese Factory (III), Winery (IV), Warehousing (V), Machine (V)"
+    },
+    "knight": {
+      "default": "Fill in a land route",
+      "beneficialDeeds": "Beneficial Deeds: 4",
+      "placeCards": "Trade Route (II), Tree House (II), Four-In-Hand (III), Guesthouse (IV)"
+    },
+    "scholar": {
+      "default": "Mark 1 space on your Development track",
+      "beneficialDeeds": "Beneficial Deeds: 1, 2, 3",
+      "placeCards": "Library (I), Archives (II), Architect (III), Confessional Box (IV), Consultancy (IV), School (V)"
+    },
+    "trader": {
+      "default": "Acquire 1 Place card / 1 coin",
+      "beneficialDeeds": "Beneficial Deeds: 2",
+      "placeCards": "Windmill (I), Cemetery (I), Distillery (II), Falconry (IV)"
+    }
+  },
   "botTurn": {
     "title": "Joan's Turn",
     "actions": "Actions",
@@ -99,11 +131,5 @@
   "serviceWorkerUpdatedRefresh": {
     "title": "Refresh Application",
     "notice": "The application was updated - do you want to refresh to use the latest version?"
-  },
-  "boatman": "Fill a water route / 1 coin<br/>Beneficial Deeds: 1<br/>Brewery (I), Fishing Boat (II), Two-Master (III), Park (IV)",
-  "craftsman": "Build a trading station / 1 coin<br/>Beneficial Deeds: 3, 4<br>Joinery (III), Goldsmith (V)",
-  "farmer": "Any one good<br/>Beneficial Deeds: 2, 3<br/>Stable (I), Meadow (I), Hayrick (II), Cheese Factory (III), Winery (IV), Warehousing (V), Machine (V)",
-  "knight": "Fill in a land route<br/>Beneficial Deeds: 4<br>Trade Route (II), Tree House (II), Four-In-Hand (III), Guesthouse (IV)",
-  "scholar": "Mark 1 space on your Development track<br/>Beneficial Deeds: 1, 2, 3<br/>Library (I), Archives (II), Architect (III), Confessional Box (IV), Consultancy (IV), School (V)",
-  "trader": "Acquire 1 Place card / 1 coin<br/>Beneficial Deeds: 2<br>Windmill (I), Cemetery (I), Distillery (II), Falconry (IV)"
+  }
 }
