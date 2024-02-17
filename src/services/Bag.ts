@@ -1,5 +1,5 @@
 import { BagPersistence } from '@/store'
-import * as _ from 'lodash'
+import { shuffle } from 'lodash'
 import Follower from './enum/Follower'
 
 /**
@@ -120,7 +120,7 @@ export default class Bag {
       Follower.KNIGHT,Follower.KNIGHT,Follower.KNIGHT,Follower.KNIGHT,
       Follower.SCHOLAR,Follower.SCHOLAR,Follower.SCHOLAR,Follower.SCHOLAR,Follower.SCHOLAR
     ]
-    inside = _.shuffle(inside)
+    inside = shuffle(inside)
     const bag = new Bag(inside, [], [], [], [])
     // draw first two tiles and put to holding
     bag.draw(2)
