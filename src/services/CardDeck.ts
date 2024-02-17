@@ -1,5 +1,5 @@
 import { CardDeckPersistence } from '@/store'
-import * as _ from 'lodash'
+import { shuffle } from 'lodash'
 import Card from './Card'
 import Cards from './Cards'
 import DifficultyLevel from './enum/DifficultyLevel'
@@ -61,7 +61,7 @@ export default class CardDeck {
    */
   public static new(difficultyLevel : DifficultyLevel) : CardDeck {
     let deck = Cards.getAll(difficultyLevel)
-    deck = _.shuffle(deck)
+    deck = shuffle(deck)
     return new CardDeck(deck, [])
   }
 

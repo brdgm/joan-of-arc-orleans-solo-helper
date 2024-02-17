@@ -1,4 +1,4 @@
-import * as _ from 'lodash'
+import { clone, reverse } from 'lodash'
 import Bag from './Bag';
 import CardDeck from './CardDeck';
 import Action from './enum/Action';
@@ -66,9 +66,9 @@ export default class Bot {
 
   private static selectTile(cardDeck : CardDeck, bag : Bag) : number {
     // get list of preferred follower tiles - listed downwards or upwards
-    const followerActions = _.clone(cardDeck.activeCard.followerActions)
+    const followerActions = clone(cardDeck.activeCard.followerActions)
     if (cardDeck.nextCard.direction == Direction.UP) {
-      _.reverse(followerActions)
+      reverse(followerActions)
     }
     // find first matching
     const followerAction = followerActions.find(item => bag.available.includes(item.follower))
