@@ -33,7 +33,12 @@
   "playerTurn": {
     "title": "Your Turn",
     "pickTile": "Pick tile:",
-    "actions": "Available Options"
+    "actions": "Available Options",
+    "tileBag": {
+      "title": "Follower Tiles",
+      "remainingTiles": "Remaining tiles in bag:",
+      "none": "(none)"
+    }
   },
   "tileOptions": {
     "boatman": {

@@ -33,7 +33,12 @@
   "playerTurn": {
     "title": "Dein Zug",
     "pickTile": "Personenplättchen wählen:",
-    "actions": "Verfügbare Optionen"
+    "actions": "Verfügbare Optionen",
+    "tileBag": {
+      "title": "Personenplättchen",
+      "remainingTiles": "Verbliebene Personenplättchen im Säckchen:",
+      "none": "(keine)"
+    }
   },
   "tileOptions": {
     "boatman": {
