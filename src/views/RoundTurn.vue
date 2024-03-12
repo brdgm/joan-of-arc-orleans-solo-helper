@@ -6,7 +6,10 @@
       {{t('botTurn.currentCard')}} {{bot.cardDeck.activeCard.id}}<br/>
       {{t('botTurn.nextCard')}} {{bot.cardDeck.nextCard.id}}
     </p>
-</div>
+    <p v-else>
+      <button class="btn btn-outline-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#tileBagModal">{{t('playerTurn.tileBag.title')}}</button>
+    </p>
+  </div>
 
   <PlayerTurn v-if="playerTurn" :bag="bag" @choose-tile="playerChooseTile($event.index)"/>
   <BotTurn v-if="botTurn && bot" :bot="bot" :bag="bag"/>
@@ -22,6 +25,16 @@
     <template #body>
       <p v-html="t('round.monkBonusAction.intro')"></p>
       <BotActions v-if="bot" :actions="bot.monkBonusActions" :town-number="bot.townNumber"/>
+    </template>
+  </ModalDialog>
+
+  <ModalDialog id="tileBagModal" :title="t('playerTurn.tileBag.title')">
+    <template #body>
+      <p v-html="t('playerTurn.tileBag.remainingTiles')"></p>
+      <div v-for="[follower, count] in tilesInsideBag" :key="follower" class="mt-2">
+        <AppIcon :type="'follower'" :name="follower" class="tileIcon"/> x {{count}}
+      </div>
+      <p v-if="tilesInsideBag.size == 0" v-html="t('playerTurn.tileBag.none')"></p>
     </template>
   </ModalDialog>
 
@@ -42,6 +55,7 @@ import BotActions from '@/components/round/BotActions.vue'
 import ModalDialog from 'brdgm-commons/src/components/structure/ModalDialog.vue'
 import DifficultyLevel from '@/services/enum/DifficultyLevel'
 import CardDeck from '@/services/CardDeck'
+import Follower from '@/services/enum/Follower'
 
 export default defineComponent({
   name: 'RoundTurn',
@@ -103,6 +117,9 @@ export default defineComponent({
     },
     isMonkActionAvailable() : boolean {
       return this.botTurn && this.difficultyLevel != DifficultyLevel.EASY
+    },
+    tilesInsideBag() : Map<Follower,number> {
+      return this.bag.getInsidePerFollower()
     }
   },
   methods: {
@@ -167,5 +184,8 @@ export default defineComponent({
 .cardInfo {
   margin-top: 1rem;
   font-size: x-small;
+}
+.tileIcon {
+  width: 2rem;
 }
 </style>

@@ -33,7 +33,12 @@
   "playerTurn": {
     "title": "Tuo Turno",
     "pickTile": "Scegli una Tessera:",
-    "actions": "Opzioni disponibili"
+    "actions": "Opzioni disponibili",
+    "tileBag": {
+      "title": "Tessere",
+      "remainingTiles": "Tessere nel sacchetto:",
+      "none": "(nessuna)"
+    }
   },
   "tileOptions": {
     "boatman": {
