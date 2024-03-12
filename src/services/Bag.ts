@@ -43,6 +43,21 @@ export default class Bag {
   }
 
   /**
+   * Get tile left inside the bag grouped by follower.
+   * @returns Tiles per follower
+   */
+  public getInsidePerFollower() : Map<Follower, number> {
+    const result = new Map<Follower, number>()
+    Object.values(Follower).forEach(follower => {
+      const count = this._inside.filter(item => item == follower).length
+      if (count > 0) {
+        result.set(follower, count)
+      }
+    })
+    return result
+  }
+
+  /**
    * Gets persistence view of bag.
    */
   public toPersistence() : BagPersistence {
