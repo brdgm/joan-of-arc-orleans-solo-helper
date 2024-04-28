@@ -1,4 +1,4 @@
-import { CardDeckPersistence } from '@/store'
+import { CardDeckPersistence } from '@/store/state'
 import { shuffle } from 'lodash'
 import Card from './Card'
 import Cards from './Cards'
