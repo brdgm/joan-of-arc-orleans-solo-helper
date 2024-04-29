@@ -44,7 +44,7 @@
 import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
-import { useStore } from '@/store'
+import { useStateStore } from '@/store/state'
 import FooterButtons from '@/components/structure/FooterButtons.vue'
 import NavigationState from '@/util/NavigationState'
 import BotTurn from '@/components/round/BotTurn.vue'
@@ -69,20 +69,13 @@ export default defineComponent({
   },
   setup() {
     const { t } = useI18n()
-    const store = useStore()
+    const state = useStateStore()
     const route = useRoute()
 
-    const state = new NavigationState(route, store)
-    const round = state.round
-    const tile = state.tile
-    const cardDeck = state.cardDeck
-    const bag = state.bag
-    const playerTurn = state.isPlayerTurn
-    const botTurn = state.isBotTurn
-    const bot = state.bot
-    const difficultyLevel = state.difficultyLevel
+    const navigationState = new NavigationState(route)
+    const { round, tile, cardDeck, bag, isPlayerTurn:playerTurn, isBotTurn:botTurn, bot, difficultyLevel } = navigationState
 
-    return { t, round, tile, cardDeck, bag, playerTurn, botTurn, bot, difficultyLevel }
+    return { t, state, round, tile, cardDeck, bag, playerTurn, botTurn, bot, difficultyLevel }
   },
   data() {
     return {
@@ -159,10 +152,10 @@ export default defineComponent({
         }
         this.bag.draw(5)
       }
-      this.$store.commit('tile', {round:nextRound,tile:nextTile,bag:this.bag.toPersistence()})
+      this.state.tile({round:nextRound,tile:nextTile,bag:this.bag.toPersistence()})
       if (cardDeck) {
         cardDeck.draw()
-        this.$store.commit('botTurn', {round:nextBotRound,tile:nextBotTile,cardDeck:cardDeck.toPersistence()})
+        this.state.botTurn({round:nextBotRound,tile:nextBotTile,cardDeck:cardDeck.toPersistence()})
       }
     },
     playerChooseTile(index : number) : void {

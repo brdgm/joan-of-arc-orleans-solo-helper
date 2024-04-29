@@ -1,4 +1,4 @@
-import { BagPersistence } from '@/store'
+import { BagPersistence } from '@/store/state'
 import { shuffle } from 'lodash'
 import Follower from './enum/Follower'
 

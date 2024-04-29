@@ -1,10 +1,10 @@
 import { clone, reverse } from 'lodash'
-import Bag from './Bag';
-import CardDeck from './CardDeck';
-import Action from './enum/Action';
+import Bag from './Bag'
+import CardDeck from './CardDeck'
+import Action from './enum/Action'
 import DifficultyLevel from './enum/DifficultyLevel'
-import Direction from './enum/Direction';
-import Follower from './enum/Follower';
+import Direction from './enum/Direction'
+import Follower from './enum/Follower'
 
 /**
  * Picks follower tile and determines the actions based on the currend card and difficulty level.
