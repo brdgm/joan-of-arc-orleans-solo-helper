@@ -1,13 +1,13 @@
 import DifficultyLevel from '@/services/enum/DifficultyLevel'
-import { State } from '@/store'
+import { useStateStore } from '@/store/state'
 import { RouteLocation } from 'vue-router'
-import { Store } from 'vuex'
 import CardDeck from '@/services/CardDeck'
 import Bag from '@/services/Bag'
 import Bot from '@/services/Bot'
 
 export default class NavigationState {
 
+  readonly state
   readonly difficultyLevel : DifficultyLevel
   readonly round : number
   readonly tile : number
@@ -15,16 +15,17 @@ export default class NavigationState {
   readonly cardDeck? : CardDeck
   readonly bot? : Bot
 
-  constructor(route : RouteLocation, store : Store<State>) {    
-    const setup = store.state.setup
+  constructor(route : RouteLocation) {
+    this.state = useStateStore()
+    const setup = this.state.setup
     this.difficultyLevel = setup.difficultyLevel
 
     this.round = parseInt(route.params['round'] as string)
     this.tile = parseInt(route.params['tile'] as string)
-    this.bag = NavigationState.getBag(this.round, this.tile, store)
+    this.bag = this.getBag(this.round, this.tile)
 
     if (this.isBotTurn) {
-      this.cardDeck = NavigationState.getCardDeck(this.round, this.tile, this.difficultyLevel, store)
+      this.cardDeck = this.getCardDeck(this.round, this.tile, this.difficultyLevel)
       this.bot = new Bot(this.cardDeck, this.bag, this.difficultyLevel)
     }
   }
@@ -43,30 +44,30 @@ export default class NavigationState {
     return !this.isPlayerTurn
   }
 
-  private static getCardDeck(round : number, tile : number, difficultyLevel: DifficultyLevel, store : Store<State>) : CardDeck {
+  private getCardDeck(round : number, tile : number, difficultyLevel: DifficultyLevel) : CardDeck {
     let cardDeck
-    const currentTurn = store.state.botTurns.find(item => item.round == round && item.tile == tile)
+    const currentTurn = this.state.botTurns.find(item => item.round == round && item.tile == tile)
     if (currentTurn) {
       cardDeck = CardDeck.fromPersistence(currentTurn.cardDeck)
     }
     else {
       cardDeck = CardDeck.new(difficultyLevel)
       cardDeck.draw()
-      store.commit('botTurn', {round:round,tile:tile,cardDeck:cardDeck.toPersistence()})
+      this.state.botTurn({round:round,tile:tile,cardDeck:cardDeck.toPersistence()})
     }
     return cardDeck
   }
 
-  private static getBag(round : number, tile : number, store : Store<State>) : Bag {
+  private getBag(round : number, tile : number) : Bag {
     let bag
-    const currentTile = store.state.tiles.find(item => item.round == round && item.tile == tile)
+    const currentTile = this.state.tiles.find(item => item.round == round && item.tile == tile)
     if (currentTile) {
       bag = Bag.fromPersistence(currentTile.bag)
     }
     else {
       bag = Bag.new()
       bag.draw(5)
-      store.commit('tile', {round:round,tile:tile,bag:bag.toPersistence()})
+      this.state.tile({round:round,tile:tile,bag:bag.toPersistence()})
     }
     return bag
   }
