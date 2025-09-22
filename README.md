@@ -1,6 +1,6 @@
 # Joan of Arc: Orléans Solo Helper
 
-[![Build](https://github.com/brdgm/joan-of-arc-orleans-solo-helper/workflows/Build/badge.svg?branch=develop)](https://github.com/brdgm/joan-of-arc-orleans-solo-helper/actions?query=workflow%3ABuild+branch%3Adevelop)
+[![Build](https://github.com/brdgm/joan-of-arc-orleans-solo-helper/actions/workflows/build.yml/badge.svg?branch=develop)](https://github.com/brdgm/joan-of-arc-orleans-solo-helper/actions?query=workflow%3ABuild+branch%3Adevelop)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=brdgm_joan-of-arc-orleans-solo-helper&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=brdgm_joan-of-arc-orleans-solo-helper)
 
 
