@@ -48,12 +48,12 @@ export default class Bag {
    */
   public getInsidePerFollower() : Map<Follower, number> {
     const result = new Map<Follower, number>()
-    Object.values(Follower).forEach(follower => {
+    for (const follower of Object.values(Follower)) {
       const count = this._inside.filter(item => item == follower).length
       if (count > 0) {
         result.set(follower, count)
       }
-    })
+    }
     return result
   }
 

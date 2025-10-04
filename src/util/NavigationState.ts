@@ -20,8 +20,8 @@ export default class NavigationState {
     const setup = this.state.setup
     this.difficultyLevel = setup.difficultyLevel
 
-    this.round = parseInt(route.params['round'] as string)
-    this.tile = parseInt(route.params['tile'] as string)
+    this.round = Number.parseInt(route.params['round'] as string)
+    this.tile = Number.parseInt(route.params['tile'] as string)
     this.bag = this.getBag(this.round, this.tile)
 
     if (this.isBotTurn) {
