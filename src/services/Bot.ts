@@ -92,19 +92,18 @@ export default class Bot {
     if (!followerAction) {
       throw new Error("No follower action: " + follower)
     }
-    followerAction.actions
+    for (const action of followerAction.actions
         // filter out MONK actions on EASY difficulty level
-        .filter(item => item!=Action.MONK || difficultyLevel!=DifficultyLevel.EASY)
-        .forEach(action => {
-          // translate MONK action to action depicted on next card
-          if (action == Action.MONK) {
-            result.push(...Bot.getMonkBonusActions(cardDeck))
-          }
-          // add standard actions
-          else {
-            result.push(action)
-          }
-        })
+        .filter(item => item!=Action.MONK || difficultyLevel!=DifficultyLevel.EASY)) {
+      // translate MONK action to action depicted on next card
+      if (action == Action.MONK) {
+        result.push(...Bot.getMonkBonusActions(cardDeck))
+      }
+      // add standard actions
+      else {
+        result.push(action)
+      }
+    }
 
     return result
   }
