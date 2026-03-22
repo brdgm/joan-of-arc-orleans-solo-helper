@@ -1,0 +1,140 @@
+{
+  "gameTitle": "오를레앙: 잔다르크",
+  "home": {
+    "title": "오를레앙: 잔다르크 솔로 도우미",
+    "play1": "<a href='https://boardgamegeek.com/boardgame/364641/joan-arc-orleans-draw-write' target='_blank' rel='noopener'><b>오를레앙: 잔다르크</b></a>의 솔로 모드 상대인 잔과 대결하세요.",
+    "play2": "이 도우미 앱은 오토마타 카드와 타일 주머니를 대체하며, 다양한 난이도로 게임을 설정하는 데 도움을 줍니다.",
+    "feedback": "토론 및 피드백:"
+  },
+  "setup": {
+    "title": "게임 설정",
+    "preparation": {
+      "title": "준비",
+      "takeSheet": "패드에서 시트 1장을 가져와서 뒷면을 사용하세요.",
+      "placeCards": "장소 카드를 섞고 5개 범주(I~V) 각각의 장소 카드 4장씩을 앞면이 보이게 펼쳐 놓으세요.",
+      "remainingCards": "각 범주의 나머지 2장은 상자에 다시 넣으세요."
+    },
+    "difficultyLevel": {
+      "title": "난이도",
+      "easy": "쉬움",
+      "hard": "어려움",
+      "level1": "기본",
+      "level2": "애호가 변형",
+      "level3": "특별 도전"
+    }
+  },
+  "round": {
+    "roundNumber": "라운드 {round}/{rounds}",
+    "monkBonusAction": {
+      "title": "수도사 보너스 행동",
+      "intro": "잔이 수도사 보너스 행동을 얻는 경우:"
+    }
+  },
+  "playerTurn": {
+    "title": "당신의 턴",
+    "pickTile": "타일 선택:",
+    "actions": "가능한 선택사항",
+    "tileBag": {
+      "title": "추종자 타일",
+      "remainingTiles": "주머니에 남은 타일:",
+      "none": "(없음)"
+    }
+  },
+  "tileOptions": {
+    "boatman": {
+      "default": "수로 채우기 / 동전 1개",
+      "beneficialDeeds": "혜택 증서: 1",
+      "placeCards": "양조장 (I), 어선 (II), 2돛선 (III), 공원 (IV)"
+    },
+    "craftsman": {
+      "default": "무역소 건설 / 동전 1개",
+      "beneficialDeeds": "혜택 증서: 3, 4",
+      "placeCards": "목공소 (III), 금세공점 (V)"
+    },
+    "farmer": {
+      "default": "원하는 상품 1개",
+      "beneficialDeeds": "혜택 증서: 2, 3",
+      "placeCards": "마구간 (I), 목초지 (I), 건초더미 (II), 치즈 공장 (III), 와이너리 (IV), 창고업 (V), 기계 (V)"
+    },
+    "knight": {
+      "default": "육로 채우기",
+      "beneficialDeeds": "혜택 증서: 4",
+      "placeCards": "무역로 (II), 나무집 (II), 4두마차 (III), 여관 (IV)"
+    },
+    "scholar": {
+      "default": "개발 트랙에서 칸 1개 표시",
+      "beneficialDeeds": "혜택 증서: 1, 2, 3",
+      "placeCards": "도서관 (I), 기록보관소 (II), 건축가 (III), 고해소 (IV), 컨설팅 (IV), 학교 (V)"
+    },
+    "trader": {
+      "default": "장소 카드 1장 획득 / 동전 1개",
+      "beneficialDeeds": "혜택 증서: 2",
+      "placeCards": "풍차 (I), 묘지 (I), 증류소 (II), 매사냥터 (IV)"
+    }
+  },
+  "botTurn": {
+    "title": "잔의 턴",
+    "actions": "행동",
+    "currentCard": "현재 카드:",
+    "nextCard": "다음 카드:",
+    "action": {
+      "bank-citizen-bonus": "<b>은행</b>의 시민을 아직 동그라미 치지 않았다면, 그를 줄로 그어 지우고 잔의 영역에서 시민 1명에 동그라미를 치세요. 이미 동그라미를 쳤다면 (또는 잔이 이전에 줄로 그어 지웠다면), 잔은 아무것도 얻지 못하고 효과는 무효가 됩니다.",
+      "bank-shield-bonus": "당신의 <b>은행</b>에서 아직 줄로 그어 지우지 않은 왼쪽부터 첫 번째 노란색 보너스를 줄로 그어 지우세요.",
+      "benefical-deed-left": "4개의 <b>혜택 증서</b> 중 하나를 (왼쪽부터) 줄로 그어 지우세요.",
+      "benefical-deed-right": "4개의 <b>혜택 증서</b> 중 하나를 (오른쪽부터) 줄로 그어 지우세요.",
+      "boatman-track": "<b>뱃사공 트랙</b>에서 칸 하나를 표시하세요.",
+      "citizen": "잔의 영역에서 <b>시민</b> 1명에 동그라미를 치세요.",
+      "development-level": "잔의 영역에서 다음 <b>개발 레벨</b>을 표시하세요.",
+      "farmer-track": "<b>농부 트랙</b>에서 칸 하나를 표시하세요.",
+      "knight-track": "<b>기사 트랙</b>에서 칸 하나를 표시하세요.",
+      "place-cards-1": "<b>\"I\" 장소 카드</b>를 섞고 무작위로 1장을 게임에서 제거하세요.",
+      "place-cards-2": "<b>\"II\" 장소 카드</b>를 섞고 무작위로 1장을 게임에서 제거하세요.",
+      "place-cards-3": "<b>\"III\" 장소 카드</b>를 섞고 무작위로 1장을 게임에서 제거하세요.",
+      "place-cards-4": "<b>\"IV\" 장소 카드</b>를 섞고 무작위로 1장을 게임에서 제거하세요.",
+      "place-cards-5": "<b>\"V\" 장소 카드</b>를 섞고 무작위로 1장을 게임에서 제거하세요.",
+      "scholar-track": "<b>학자 트랙</b>에서 칸 하나를 표시하세요.",
+      "shield": "잔의 창고에서 <b>방패 1개</b>에 동그라미를 치세요.",
+      "trading-station": "잔의 영역에서 <b>무역소 1개</b>에 동그라미를 치세요.<br/>당신의 지도에서 <b>마을 {townNumber}을 줄로 그어 지우세요</b>. 단, 아직 동그라미를 치거나 줄로 그어 지우지 않은 경우에만 (즉, 당신도 잔도 여기에 무역소를 건설하지 않은 경우). 그런 경우가 아니라면, 줄로 그어 지우지도 않고 동그라미를 치지도 않은 (즉, 아무도 아직 무역소를 건설하지 않은) 다음으로 큰 번호의 마을을 줄로 그어 지우세요.",
+      "warehouse-citizen-bonus": "<b>창고</b>의 시민을 아직 동그라미 치지 않았다면, 그를 줄로 그어 지우고 잔의 영역에서 시민 1명에 동그라미를 치세요. 이미 동그라미를 쳤다면 (또는 잔이 이전에 줄로 그어 지웠다면), 잔은 아무것도 얻지 못하고 효과는 무효가 됩니다."
+    },
+    "pickPlaceCard": {
+      "title": "장소 카드 선택",
+      "howManyCards": "사용 가능한 장소 카드가 몇 장입니까?",
+      "removeCard": "이 장소 카드를 제거하세요:"
+    }
+  },
+  "endOfGame": {
+    "title": "게임 종료",
+    "tradingStationMajority": "평소와 같이, 더 많은 무역소를 건설한 사람이 시민 1명에 동그라미를 치세요.",
+    "victoryPoints": "평소와 같이 승점을 계산하세요. 잔의 영역에 잔의 값들을 입력하세요:",
+    "victoryPointsJoan1": "표시된 농부, 뱃사공, 기사의 모든 승점 합계",
+    "victoryPointsJoan2": "잔의 창고에서 동그라미 친 방패들의 합계",
+    "victoryPointsJoan3": "동그라미 친 무역소와 시민 수의 합계에 표시된 가장 높은 개발 레벨을 곱한 값",
+    "scoringResult": "이 5개 값의 총합이 잔의 점수입니다. 잔과 같거나 더 많은 승점을 얻었다면 당신이 게임에서 승리합니다!"
+  },
+  "notfound": {
+    "title": "찾을 수 없음"
+  },
+  "action": {
+    "playGame": "게임 플레이",
+    "startGame": "게임 시작",
+    "next": "다음",
+    "nextRound": "다음 라운드",
+    "abortGame": "게임 중단",
+    "abortGameConfirm": "진행 중인 게임을 중단합니다 - 정말 하시겠습니까?",
+    "endGame": "게임 종료",
+    "endGameConfirm": "이 게임을 종료하고 홈 화면으로 돌아갑니다 - 정말 하시겠습니까?",
+    "cancel": "취소",
+    "backToHome": "홈으로 돌아가기",
+    "back": "뒤로",
+    "close": "닫기",
+    "reset": "초기화"
+  },
+  "footer": {
+    "credits": "크레딧"
+  },
+  "serviceWorkerUpdatedRefresh": {
+    "title": "앱 새로고침",
+    "notice": "애플리케이션이 업데이트되었습니다 - 최신 버전을 사용하기 위해 새로고침하시겠습니까?"
+  }
+}
