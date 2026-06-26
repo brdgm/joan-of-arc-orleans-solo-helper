@@ -79,7 +79,7 @@
     "nextCard": "Next Card:",
     "action": {
       "bank-citizen-bonus": "If you have not yet circled the citizen in the <b>bank</b>, strike him out and circle a citizen in Joan’s area. If you have already circled him (or Joan has previously struck him out), Joan gets nothing and the effect is forfeited.",
-      "bank-shield-bonus": "In your <b/>bank</b>, strike out the first yellow bonus from the left that has not yet been struck out.",
+      "bank-shield-bonus": "In your <b>bank</b>, strike out the first yellow bonus from the left that has not yet been struck out.",
       "benefical-deed-left": "Strike out one of the four <b>Beneficial Deeds</b> (from left).",
       "benefical-deed-right": "Strike out one of the four <b>Beneficial Deeds</b> (from right).",
       "boatman-track": "Mark a space on the <b>boatman track</b>.",
